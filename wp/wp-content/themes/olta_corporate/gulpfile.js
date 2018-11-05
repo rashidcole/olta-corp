@@ -5,7 +5,6 @@ var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var autoPrefixer = require('gulp-autoprefixer');
-var cssComb = require('gulp-csscomb');
 var cmq = require('gulp-merge-media-queries');
 var cleanCss = require('gulp-clean-css');
 var jshint = require('gulp-jshint');
@@ -22,7 +21,6 @@ gulp.task('sass',function(){
 		}))
 		.pipe(sass())
 		.pipe(autoPrefixer())
-		.pipe(cssComb())
 		.pipe(cmq({log:true}))
 		.pipe(gulp.dest(''))
 		.pipe(rename({
