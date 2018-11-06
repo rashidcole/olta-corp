@@ -159,3 +159,30 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+// 固定ページにタグを設定
+function add_tag_to_page() {
+ register_taxonomy_for_object_type('post_tag', 'page');
+}
+add_action('init', 'add_tag_to_page');
+ 
+
+/* インラインスタイル削除 */
+function remove_recent_comments_style() {
+    global $wp_widget_factory;
+    remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+}
+add_action( 'widgets_init', 'remove_recent_comments_style' );
+
+// ID を削除する
+add_filter('nav_menu_item_id', 'removeId', 10);
+function removeId( $id ){
+    return $id = array();
+}
+
+// 絵文字のやつ削除
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('wp_print_styles', 'print_emoji_styles' );
+remove_action('admin_print_styles', 'print_emoji_styles');

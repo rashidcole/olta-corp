@@ -12,7 +12,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
 gulp.task('sass',function(){
-	gulp.src(['sass/**/*.scss'])
+	return gulp.src(['sass/**/*.scss'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -22,15 +22,15 @@ gulp.task('sass',function(){
 		.pipe(sass())
 		.pipe(autoPrefixer())
 		.pipe(cmq({log:true}))
-		.pipe(gulp.dest(''))
+		.pipe(gulp.dest('./'))
 		.pipe(rename({
 			suffix: '.min'
 		}))
 		.pipe(cleanCss())
-		.pipe(gulp.dest('min'))
+		.pipe(gulp.dest('./min/'))
 });
 gulp.task('js',function(){
-	gulp.src(['js/**/*.js'])
+	return gulp.src(['js/**/*.js'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -40,15 +40,15 @@ gulp.task('js',function(){
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
 		.pipe(concat('main.js'))
-		.pipe(gulp.dest(''))
+		.pipe(gulp.dest('./'))
 		.pipe(rename({
 			suffix: '.min'
 		}))
 		.pipe(uglify())
-		.pipe(gulp.dest('min'))
+		.pipe(gulp.dest('./min/'))
 });
 gulp.task('html',function(){
-	gulp.src(['html/**/*.html'])
+	return gulp.src(['html/**/*.html'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -59,8 +59,8 @@ gulp.task('html',function(){
 });
 
 gulp.task('default',function(){
-    gulp.watch('js/**/*.js',['js']);
-    gulp.watch('sass/**/*.scss',['sass']);
-    gulp.watch('html/**/*.html',['html']);
+    return gulp.watch('js/**/*.js',gulp.task('js'));
+    return gulp.watch('sass/**/*.scss',gulp.task('sass'));
+    return gulp.watch('html/**/*.html',gulp.task('html'));
 });
 
