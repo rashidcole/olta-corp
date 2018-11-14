@@ -1,8 +1,14 @@
+article {
+	position: relative;
+	width: 100%;
+}
+
+
+
 /*--------------------------------------------------------------
 # Angled Edges
 --------------------------------------------------------------*/
 @import "angled-edges";
-
 
 .block-angle-001 {
 	@include angled-edge('outside top','upper left', #fff, 112, 960);

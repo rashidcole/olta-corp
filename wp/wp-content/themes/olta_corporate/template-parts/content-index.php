@@ -8,288 +8,89 @@
  */
 
 ?>
-<style type="text/css" media="screen">
-.fadeAnime {
-	-webkit-animation-fill-mode:both;
-	-ms-animation-fill-mode:both;
-	animation-fill-mode:both;
-	-webkit-animation-duration:0.7s;
-	-ms-animation-duration:0.7s;
-	animation-duration:0.7s;
-	-webkit-animation-name: fadeAnime;
-	-ms-animation-name: fadeAnime;
-	animation-name: fadeAnime;
-	visibility: visible !important;
-}
-@-webkit-keyframes fadeAnime {
-	0% { opacity: 0; -webkit-transform: translateY(50px); }
-	100% { opacity: 1; -webkit-transform: translateY(0); }
-}
-@keyframes fadeAnime {
-	0% { opacity: 0; -webkit-transform: translateY(50px); -ms-transform: translateY(50px); transform: translateY(50px); }
-	100% { opacity: 1; -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); }
-}
 
-.prefade {
-	visibility: hidden;
-}
-
-
-
-.site {
-	position: relative;
-	width: 960px;
-	border-left: 1px solid #f2f2f2;
-	border-right: 1px solid #f2f2f2;
-	padding: 0;
-	margin: 0 auto;
-}
-
-header.site-header {
-	width: 816px;
-	height: 126px;
-	margin: 26px auto 0 auto;
-}
-header.site-header h1 {
-	float: left;
-	height: 26px;
-	margin: 0;
-	padding: 0;
-	margin-top: 38px;
-}
-nav {
-	float: right;
-	width: auto;
-}
-nav ul {
-	height: 126px;
-	font-size: 12px;
-	margin-left: 0;
-	padding-left: 0;
-}
-nav ul li {
-	height: 126px;
-	line-height: 126px;
-	margin-left: 48px;
-	vertical-align: middle;
-	display: inline-block;
-}
-
-
-article{
-	position: relative;
-	width: 816px;
-	margin: 0 auto 0 auto;
-}
-
-section.content-section {
-	position: relative;
-	display: block;
-	padding: 0;
-}
-section.content-section h2 {
-	width: 314px;
-	height: 85px;
-	line-height: 85px;
-	margin-top: 0;
-	margin-left: -74px;
-	padding-left: 74px;
-	background-color: #69d2dc;
-	font-size: 26px;
-	font-weight: normal;
-	color: #fff;
-	letter-spacing: 0.05em;
-}
-
-
-#sec-mission {
-	padding: 100px 0;
-	background-color: #37358d;
-	width: 816px;
-	overflow: visible;
-}
-#sec-mission h2 {
-	margin-bottom: 93px;
-}
-#sec-mission .sec-block {
-	display: block;
-	width: 780px;
-	background-color: #fff;
-	right: -74px;
-	margin-left: 74px;
-	padding: 84px 108px 77px 108px;
-}
-#sec-mission .sec-block h3 {
-	margin: 0;
-	padding: 0;
-	margin-bottom: 31px;
-}
-#sec-mission .sec-block h4 {
-	margin: 0;
-	padding: 0;
-	line-height: 38px;
-	font-size: 24px;
-	color: #1c78eb;
-	font-weight: normal;
-	text-align: right;
-	letter-spacing: 0.05em;
-}
-#sec-mission p {
-	margin: 94px 0 65px 78px;
-	padding: 0;
-	line-height: 52px;
-	font-size: 20px;
-	color: #fff;
-	font-weight: normal;
-	text-align: left;
-	letter-spacing: 0.02em;
-}
-
-
-#sec-member {
-	padding: 100px 0;
-	background-color: #fff;
-	width: 816px;
-	overflow: visible;
-	z-index: 10;
-	margin-top: -300px;
-}
-#sec-member h2 {
-	margin-bottom: 93px;
-}
-#sec-member .sec-block {
-	display: block;
-	padding: 20px 0 130px 0;
-}
-#sec-member p {
-	margin: 0px;
-	padding: 0;
-	line-height: 1.6;
-	font-size: 9px;
-	font-weight: normal;
-	text-align: left;
-	letter-spacing: 0.02em;
-}
-
-.block-angle-001 {
-	display: block;
-	width: 960px;
-	height: 327px;
-	background-color: #fff;
-	margin-left: -72px;
-}
-.block-angle-002 {
-	display: block;
-	width: 960px;
-	height: 620px;
-	background-color: #e3edf7;
-	margin-left: -72px;
-	margin-top: -943px;
-}
-.block-angle-003 {
-	display: block;
-	width: 960px;
-	height: 620px;
-	background-color: #2982ec;
-	margin-left: -72px;
-	margin-top: -735px;
-	padding-bottom: 790px;
-}
-
-
-
-#sec-company {
-	padding: 100px 0;
-	background-color: #fff;
-	width: 816px;
-	overflow: visible;
-	z-index: 10;
-	margin-top: 485px;
-}
-#sec-company h2 {
-	margin-bottom: 93px;
-}
-#sec-company .sec-block {
-	display: block;
-	padding: 20px 0 130px 0;
-}
-#sec-company p {
-	margin: 0px;
-	padding: 0;
-	line-height: 1.6;
-	font-size: 9px;
-	font-weight: normal;
-	text-align: left;
-	letter-spacing: 0.02em;
-}
-
-</style>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<article id="post-<?php the_ID(); ?>" >
-
-	<!--<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>-->
+<article id="post-<?php the_ID(); ?>" class="">
+	<section class="content-section" id="sec-hero">
+		<div class="sec-inner">
+			<h1 class="prefade prefade-001">会社経営を<br>ハックする<br><span><img src="/wp/wp-content/themes/olta_corporate/images/main-title.svg" alt="olta"></span></h1>
+		</div>
+	</section><!-- .content #sec-hero -->
 	<section class="content-section" id="sec-mission">
-		<h2 class="prefade prefade-001">OLTAについて</h2>
-		<div class="sec-block prefade prefade-002">
-			<h3><img src="/wp/wp-content/themes/olta_corporate/images/img-h3-mission.png" alt="Credit Re:desing"></h3>
+		<div class="sec-inner">
+			<h2 class="">ミッション</h2>
+			<h3 class="prefade prefade-002"><img src="/wp/wp-content/themes/olta_corporate/images/txt-redesign.svg" alt="Credit Re:design"></h3>
 			<h4>あらゆる情報を信用に変え<br>あたらしい価値を創出する</h4>
+			<a href="" class="fade">OLTAについて</a>
 		</div>
-		<p>世界中の誰もが大量の情報に触れ、大量の情報を発信し、<br>さらにテクノロジーによってそれらの情報が整理されるようになった現在、<br>個人や企業の「信用」はさまざまな角度から評価できるようになりました。</p>
 	</section><!-- .content #sec-mission -->
-
-<div class="block-angle-001"></div>
-
-
-	<section class="content-section" id="sec-member">
-		<h2 class="">メンバー</h2>
-		<div class="sec-block">
-			<img src="/wp/wp-content/themes/olta_corporate/images/img-picture-sawashi.png" alt="CEO 澤㞴 優紀">
-			<dl><dt>CEO</dt><dd>澤㞴 優紀</dd></dl>
-			<p>世界中の誰もが大量の情報に触れ、大量の情報を発信し、<br>さらにテクノロジーによってそれらの情報が整理されるようになった現在、<br>個人や企業の「信用」はさまざまな角度から評価できるようになりました。</p>
+	<section class="content-section" id="sec-service">
+		<div class="sec-inner">
+			<h2 class="">サービス</h2>
+			<h3 class="fade">クラウドファクタリング<br>OLTA</h3>
+			<h4>請求書が売れる。<br>オフィスにいながら資金調達が可能な日本初のファクタリングサービスです。</h4>
+			<img src="/wp/wp-content/themes/olta_corporate/images/img-service-device.png" alt="" id="img-service-device" class="fade">
+			<img src="/wp/wp-content/themes/olta_corporate/images/img-service-capture.png" alt="" id="img-service-capture" class="fade">
+			<a href="" class="fade">もっと詳しく</a>
 		</div>
-		<h2 class="">採用情報</h2>
-		<div class="sec-block">
-			<img src="/wp/wp-content/themes/olta_corporate/images/img-recruit.png" alt="CEO 澤㞴 優紀">
+	</section><!-- .content #sec-service -->
+	<section class="content-section" id="sec-commingsoon">
+		<div class="sec-inner">
+			<h3 class="fade">Coming soon</h3>
+			<h4>「会社経営をハックする」プロダクトを他にも開発中です。最新情報にご期待ください。</h4>
 		</div>
-	</section><!-- .content #sec-member -->
+	</section><!-- .content #sec-commingsoon -->
 
-<div class="block-angle-002"></div>
+	<section class="content-section" id="sec-news">
+		<div class="sec-inner">
+			<h2 class="">ニュース</h2>
 
+			<?php
+			  $args = array(
+				'post_type' => 'post',
+				'post_status' => 'publish',
+				'posts_per_page' => 3
+			  );
+			  $st_query = new WP_Query( $args );
+			?>
+			<?php if ( $st_query->have_posts() ): ?>
+			  <?php while ( $st_query->have_posts() ) : $st_query->the_post(); ?>
 
-	<section class="content-section" id="sec-company">
-		<h2 class="">メンバー</h2>
-		<div class="sec-block">
-			<p>世界中の誰もが大量の情報に触れ、大量の情報を発信し、<br>さらにテクノロジーによってそれらの情報が整理されるようになった現在、<br>個人や企業の「信用」はさまざまな角度から評価できるようになりました。</p>
+			<?php
+			$cat = get_the_category(); // 情報取得
+			$catName = $cat[0]->name; // 名称取得
+			?>
+
+			<article class="fade">
+				<span class="post-date"><?php the_time( 'Y年m月d日' ); ?></span>
+				<span class="post-category"><?php echo $catName; ?></span>
+				<h3><?php the_title(); ?></h3>
+				<p class="accordion_icon"><span></span><span></span></p>
+				<section>
+					<?php the_content(); ?>
+					<ul class="sns">
+					<?php
+					  $url_encode=urlencode(get_permalink());
+					  $title_encode=urlencode(get_the_title());
+					?>
+						<li class="fb">
+						<a href="http://www.facebook.com/sharer.php?src=bm&u=<?php echo $url_encode;?>&t=<?php echo $title_encode;?>" class="naifix-sns-button"><i class="fas fa-thumbs-up"></i>いいね！</a><?php if(function_exists('scc_get_share_facebook')): ?><span><?php echo scc_get_share_facebook() ?></span><?php endif; ?></li>
+						<li class="tw">
+						<a href="http://twitter.com/share?text=<?php echo $title_encode ?>&url=<?php echo $url_encode ?>&tw_p=tweetbutton&via=<?php the_author_meta('twitter'); ?>&related=<?php the_author_meta('twitter'); ?>" class="naifix-sns-button"><i class="fab fa-twitter"></i>ツイート</a><?php if(function_exists('scc_get_share_twitter')): ?><span><?php echo scc_get_share_twitter() ?></span><?php endif; ?></li>
+						<li class="hb">
+						<a href="http://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $url_encode ?>" class="naifix-sns-button"><span>Ｂ!</span>ブックマーク</a><?php if(function_exists('scc_get_share_hatebu')): ?><span><?php echo scc_get_share_hatebu() ?></span><?php endif; ?></li>
+					</ul>
+
+				</section>
+			</article>
+
+			<?php endwhile; ?>
+			<?php else: ?>
+			  <p>新しい記事はありません</p>
+			<?php endif; ?>
+
+			<a href="" class="news-link fade">ニュース一覧</a>
+
 		</div>
-	</section><!-- .content #sec-member -->
-
-<div class="block-angle-003"></div>
+	</section><!-- .content #sec-service -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
-
-
-<script>
-$(document).ready(function(){
-	$('.fade').css('visibility','hidden');
-	$(window).scroll(function(){
-		var windowHeight = $(window).height(),
-		topWindow = $(window).scrollTop();
-		$('.fade').each(function(){
-			var objectPosition = $(this).offset().top;
-			if(topWindow > objectPosition - windowHeight + 100){
-	 		$(this).addClass("fadeAnime");
-		}
-		});
-	});
-
-	$('.prefade-001').delay(200).queue(function() {
-		$(this).addClass("fadeAnime");
-	});
-	$('.prefade-002').delay(1600).queue(function() {
-		$(this).addClass("fadeAnime");
-	});
-
-});
-</script>

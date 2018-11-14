@@ -47,20 +47,17 @@ gulp.task('js',function(){
 		.pipe(uglify())
 		.pipe(gulp.dest('./min/'))
 });
-gulp.task('html',function(){
-	return gulp.src(['html/**/*.html'])
-		.pipe(plumber({
-			handleError: function (err) {
-				console.log(err);
-				this.emit('end');
-			}
-		}))
-		.pipe(gulp.dest('./'))
-});
 
-gulp.task('default',function(){
-    return gulp.watch('js/**/*.js',gulp.task('js'));
-    return gulp.watch('sass/**/*.scss',gulp.task('sass'));
-    return gulp.watch('html/**/*.html',gulp.task('html'));
-});
+
+//変更を監視
+gulp.task('watch', () => {
+  gulp.watch('sass/**/*.scss', gulp.series('sass'));
+})
+
+//デフォルトタスク
+gulp.task("default",
+  gulp.series(
+    'watch'
+  )
+);
 

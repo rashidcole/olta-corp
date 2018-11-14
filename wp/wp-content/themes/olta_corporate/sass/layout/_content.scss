@@ -1,0 +1,32 @@
+.site {
+	position: relative;
+}
+
+.prefade {
+	visibility: hidden;
+}
+
+.fadeAnime {
+	animation-duration:0.7s;
+	animation-name: fadeAnime;
+	visibility: visible !important;
+}
+
+@media screen and (max-width: 767px) {
+	.site-content {
+		margin-top: $header-height-sp;
+		position: relative;
+	}
+}
+
+
+/*--------------------------------------------------------------
+## Article
+--------------------------------------------------------------*/
+@import "article";
+
+
+/*--------------------------------------------------------------
+## Index - TopPage
+--------------------------------------------------------------*/
+@import "top";

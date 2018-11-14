@@ -113,6 +113,12 @@ function olta_corporate_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar(array(
+		'name' => 'フッター１',
+		'id'            => 'footer-1',
+		'before_widget' => '',
+		'after_widget'  => '',
+	));
 }
 add_action( 'widgets_init', 'olta_corporate_widgets_init' );
 
@@ -122,15 +128,15 @@ add_action( 'widgets_init', 'olta_corporate_widgets_init' );
 function olta_corporate_scripts() {
 	wp_enqueue_style( 'olta_corporate-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'olta_corporate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'olta_corporate-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'olta_corporate-common', get_template_directory_uri() . '/js/common.js', array(), '20181109', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'olta_corporate_scripts' );
+
+
 
 /**
  * Implement the Custom Header feature.
@@ -170,15 +176,15 @@ add_action('init', 'add_tag_to_page');
 
 /* インラインスタイル削除 */
 function remove_recent_comments_style() {
-    global $wp_widget_factory;
-    remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+	global $wp_widget_factory;
+	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
 }
 add_action( 'widgets_init', 'remove_recent_comments_style' );
 
 // ID を削除する
 add_filter('nav_menu_item_id', 'removeId', 10);
 function removeId( $id ){
-    return $id = array();
+	return $id = array();
 }
 
 // 絵文字のやつ削除
@@ -186,3 +192,21 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles' );
 remove_action('admin_print_styles', 'print_emoji_styles');
+
+//カスタムメニューのliのclassを削除
+add_filter( 'nav_menu_css_class', 'my_custom_nav', 10, 2 );
+function my_custom_nav( $classes, $item ) {
+	// $classes を空にする前にカスタムクラスを変数へ入れておく
+	if( !empty( $classes[0] ) ){
+		$custom_class = esc_attr( $classes[0] );
+	}
+	$classes = array();
+	if( $item -> current == true ) {
+		$classes[] = 'current';
+	}
+	// 先に変数に入れておいたカスタムクラス名を配列へ入れる
+	if( !empty( $custom_class ) ){
+		$classes[] = $custom_class;
+	}
+	return $classes;
+}
