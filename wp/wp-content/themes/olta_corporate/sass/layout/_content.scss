@@ -1,0 +1,44 @@
+.site {
+	position: relative;
+}
+
+.prefade {
+	visibility: hidden;
+}
+
+.fadeAnime {
+	animation-duration:0.7s;
+	animation-name: fadeAnime;
+	visibility: visible !important;
+}
+
+@media screen and (max-width: 767px) {
+	.site-content {
+		margin-top: $header-height-sp;
+		position: relative;
+	}
+}
+
+
+/*--------------------------------------------------------------
+## Parts - common
+--------------------------------------------------------------*/
+@import "parts";
+
+
+/*--------------------------------------------------------------
+## Article - common
+--------------------------------------------------------------*/
+@import "article";
+
+
+/*--------------------------------------------------------------
+## Index - TopPage
+--------------------------------------------------------------*/
+@import "top";
+
+/*--------------------------------------------------------------
+## News
+--------------------------------------------------------------*/
+@import "news";
+@import "news-content";

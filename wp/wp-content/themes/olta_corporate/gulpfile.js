@@ -10,9 +10,10 @@ var cleanCss = require('gulp-clean-css');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var htmlmin = require('gulp-htmlmin');
 
 gulp.task('sass',function(){
-	gulp.src(['sass/**/*.scss'])
+	return gulp.src(['sass/**/*.scss'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -22,15 +23,15 @@ gulp.task('sass',function(){
 		.pipe(sass())
 		.pipe(autoPrefixer())
 		.pipe(cmq({log:true}))
-		.pipe(gulp.dest(''))
+		.pipe(gulp.dest('./'))
 		.pipe(rename({
 			suffix: '.min'
 		}))
 		.pipe(cleanCss())
-		.pipe(gulp.dest('min'))
+		.pipe(gulp.dest('./'))
 });
 gulp.task('js',function(){
-	gulp.src(['js/**/*.js'])
+	return gulp.src(['js/**/*.js'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -39,28 +40,30 @@ gulp.task('js',function(){
 		}))
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
-		.pipe(concat('main.js'))
-		.pipe(gulp.dest(''))
+		.pipe(concat('common.js'))
+		.pipe(gulp.dest('./'))
 		.pipe(rename({
 			suffix: '.min'
 		}))
 		.pipe(uglify())
-		.pipe(gulp.dest('min'))
-});
-gulp.task('html',function(){
-	gulp.src(['html/**/*.html'])
-		.pipe(plumber({
-			handleError: function (err) {
-				console.log(err);
-				this.emit('end');
-			}
-		}))
 		.pipe(gulp.dest('./'))
 });
 
-gulp.task('default',function(){
-    gulp.watch('js/**/*.js',['js']);
-    gulp.watch('sass/**/*.scss',['sass']);
-    gulp.watch('html/**/*.html',['html']);
+gulp.task('htmlmin', function() {
+	return gulp.src('./**/*.html')
+		.pipe(htmlmin({collapseWhitespace: true}))
+		.pipe(gulp.dest('./dist'))
 });
+
+//変更を監視
+gulp.task('watch', () => {
+  gulp.watch('sass/**/*.scss', gulp.series('sass'));
+})
+
+//デフォルトタスク
+gulp.task("default",
+  gulp.series(
+    'watch'
+  )
+);
 

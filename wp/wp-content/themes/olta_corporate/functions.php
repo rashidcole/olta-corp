@@ -113,6 +113,12 @@ function olta_corporate_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar(array(
+		'name' => 'フッター１',
+		'id'            => 'footer-1',
+		'before_widget' => '',
+		'after_widget'  => '',
+	));
 }
 add_action( 'widgets_init', 'olta_corporate_widgets_init' );
 
@@ -120,17 +126,27 @@ add_action( 'widgets_init', 'olta_corporate_widgets_init' );
  * Enqueue scripts and styles.
  */
 function olta_corporate_scripts() {
-	wp_enqueue_style( 'olta_corporate-style', get_stylesheet_uri() );
+	/*wp_enqueue_style( 'olta_corporate-style', get_stylesheet_uri() );*/
 
-	wp_enqueue_script( 'olta_corporate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'olta_corporate-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'olta_corporate-common', get_template_directory_uri() . '/common.min.js', array(), '20181109', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'olta_corporate_scripts' );
+
+function my_mynify_css(){
+	$minify_file_uri  = get_stylesheet_directory_uri() . '/style.min.css';
+	$file = $minify_file_uri;
+	wp_enqueue_style( 'my-minify-style', $file );
+}
+
+function my_scripts() {
+ my_mynify_css();
+}
+add_action( 'wp_enqueue_scripts', 'my_scripts' );
+
 
 /**
  * Implement the Custom Header feature.
@@ -159,3 +175,128 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+// 固定ページにタグを設定
+function add_tag_to_page() {
+ register_taxonomy_for_object_type('post_tag', 'page');
+}
+add_action('init', 'add_tag_to_page');
+ 
+
+/* インラインスタイル削除 */
+function remove_recent_comments_style() {
+	global $wp_widget_factory;
+	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+}
+add_action( 'widgets_init', 'remove_recent_comments_style' );
+
+// ID を削除する
+add_filter('nav_menu_item_id', 'removeId', 10);
+function removeId( $id ){
+	return $id = array();
+}
+
+// 絵文字のやつ削除
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('wp_print_styles', 'print_emoji_styles' );
+remove_action('admin_print_styles', 'print_emoji_styles');
+
+//カスタムメニューのliのclassを削除
+add_filter( 'nav_menu_css_class', 'my_custom_nav', 10, 2 );
+function my_custom_nav( $classes, $item ) {
+	// $classes を空にする前にカスタムクラスを変数へ入れておく
+	if( !empty( $classes[0] ) ){
+		$custom_class = esc_attr( $classes[0] );
+	}
+	$classes = array();
+	if( $item -> current == true ) {
+		$classes[] = 'current';
+	}
+	// 先に変数に入れておいたカスタムクラス名を配列へ入れる
+	if( !empty( $custom_class ) ){
+		$classes[] = $custom_class;
+	}
+	return $classes;
+}
+
+// サイト表示ボタン
+if (is_admin()) {
+function mycustom_admin_bar_add_siteview_button() {
+global $wp_admin_bar;
+$wp_admin_bar->add_menu( array(
+'id' => 'check',
+'title' => 'サイト表示！',
+'href' => '/',
+'meta' => array('target' => '_blank')
+));
+}
+add_action( 'wp_before_admin_bar_render', 'mycustom_admin_bar_add_siteview_button' );
+}
+
+add_filter( 'body_class', 'add_page_slug_class_name' );
+function add_page_slug_class_name( $classes ) {
+  if ( is_page() ) {
+	$page = get_post( get_the_ID() );
+	$classes[] = $page->post_name;
+  }
+  return $classes;
+}
+
+function new_excerpt_mblength($length) {
+	 return 95;
+}
+add_filter('excerpt_mblength', 'new_excerpt_mblength');
+
+function new_excerpt_more($more) {
+	return '…Read more';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+function my_posy_search($search) {
+	if(is_search()) {
+		$search .= " AND post_type = 'post'";
+	}
+  return $search;
+}
+add_filter('posts_search', 'my_posy_search');
+
+
+
+/* 投稿アーカイブページの作成 */
+function post_has_archive( $args, $post_type ) {
+
+	if ( 'post' == $post_type ) {
+		$args['rewrite'] = true;
+		$args['label'] = 'ニュース';
+		$args['has_archive'] = 'news'; //任意のスラッグ名
+	}
+	return $args;
+
+}
+add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
+
+
+
+/* the_archive_title 余計な文字を削除 */
+add_filter( 'get_the_archive_title', function ($title) {
+    if (is_category()) {
+        $title = single_cat_title('',false);
+    } elseif (is_tag()) {
+        $title = single_tag_title('',false);
+	} elseif (is_tax()) {
+	    $title = single_term_title('',false);
+	} elseif (is_post_type_archive() ){
+		$title = post_type_archive_title('',false);
+	} elseif (is_date()) {
+	    $title = get_the_time('Y年n月');
+	} elseif (is_search()) {
+	    $title = '検索結果：'.esc_html( get_search_query(false) );
+	} elseif (is_404()) {
+	    $title = '「404」ページが見つかりません';
+	} else {
+
+	}
+    return $title;
+});

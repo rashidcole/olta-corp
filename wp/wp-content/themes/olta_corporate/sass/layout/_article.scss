@@ -1,0 +1,25 @@
+article {
+	position: relative;
+	width: 100%;
+}
+
+
+
+/*--------------------------------------------------------------
+# Angled Edges
+--------------------------------------------------------------*/
+@import "angled-edges";
+
+.block-angle-001 {
+	@include angled-edge('outside top','upper left', #fff, 112, 960);
+	@include angled-edge('outside bottom','lower left', #fff, 327, 960);
+}
+
+.block-angle-002 {
+	@include angled-edge('outside top','upper right', #e3edf7, 327, 960);
+	@include angled-edge('outside bottom','lower left', #e3edf7, 327, 960);
+}
+
+.block-angle-003 {
+	@include angled-edge('outside top','upper right', #2982ec, 327, 960);
+}

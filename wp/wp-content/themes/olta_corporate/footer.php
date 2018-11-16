@@ -10,22 +10,22 @@
  */
 
 ?>
-
+	<?php get_template_part('inc/submenu'); ?>
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+
+		<div class="sp-disp"><?php dynamic_sidebar('フッター１'); ?></div>
+
+
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'olta_corporate' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'olta_corporate' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'olta_corporate' ), 'olta_corporate', '<a href="http://underscores.me/">olta</a>' );
-				?>
+			<ul class="pc-disp">
+				<li><a href="http://olta-corporate/policy/">プライバシーポリシー</a></li>
+				<li><a href="http://olta-corporate/security/">情報セキュリティ方針</a></li>
+				<li>&copy; <?php echo date(Y); ?> OLTA Inc. All Rights Reserved.</li>
+			</ul>
+
+			<p class="sp-disp">&copy; <?php echo date(Y); ?> OLTA Inc. All Rights Reserved.</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
