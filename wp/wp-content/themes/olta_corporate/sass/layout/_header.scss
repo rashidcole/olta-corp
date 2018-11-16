@@ -15,25 +15,31 @@
 			margin: 0;
 			padding: 22px 22px 22px 19px;
 		}
-
 	}
-
 }
 
 
 @media screen and (min-width: 768px) {
 
 	.site-header {
-		display: table;
-		margin: 0;
+		position: relative;
+		display: flex;
+		box-sizing: border-box;
+		justify-content: space-between;
+		flex-wrap: wrap;
+align-items: center;
+		margin: 0 auto;
 		padding: 0;
+		width: 820px;
 
 		.site-title {
+			flex-basis: 98px;
 			box-sizing: border-box;
-			display: table-cell;
+			display: block;
 			vertical-align: top;
-			padding: 22px 22px 0 19px;
+			margin-top: 70px;
 			height: 25px;
+			width: 98px;
 
 			img {
 				width: 97.8px;
@@ -42,9 +48,12 @@
 		}
 
 		.main-navigation {
-			margin-top: 0;
+			flex-basis: 720px;
+			display: block;
+			margin-top: 70px;
 			margin-left: auto;
 			width: inherit;
+			vertical-align: middle;
 		}
 
 		#primary-menu {
@@ -54,6 +63,7 @@
 		.main-navigation ul {
 			display: table;
 			margin: 0;
+			margin-left: auto;
 			padding: 0;
 		}
 		.main-navigation li {
@@ -66,10 +76,9 @@
 		}
 
 		.main-navigation li a {
-			padding: 0 10px;
+			padding: 0 23px;
+			font-size: 12px;
+			color: #4a4a4a;
 		}
-
-
 	}
-
 }

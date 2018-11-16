@@ -126,9 +126,9 @@ add_action( 'widgets_init', 'olta_corporate_widgets_init' );
  * Enqueue scripts and styles.
  */
 function olta_corporate_scripts() {
-	wp_enqueue_style( 'olta_corporate-style', get_stylesheet_uri() );
+	/*wp_enqueue_style( 'olta_corporate-style', get_stylesheet_uri() );*/
 
-	wp_enqueue_script( 'olta_corporate-common', get_template_directory_uri() . '/js/common.js', array(), '20181109', true );
+	wp_enqueue_script( 'olta_corporate-common', get_template_directory_uri() . '/common.min.js', array(), '20181109', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -136,6 +136,16 @@ function olta_corporate_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'olta_corporate_scripts' );
 
+function my_mynify_css(){
+	$minify_file_uri  = get_stylesheet_directory_uri() . '/style.min.css';
+	$file = $minify_file_uri;
+	wp_enqueue_style( 'my-minify-style', $file );
+}
+
+function my_scripts() {
+ my_mynify_css();
+}
+add_action( 'wp_enqueue_scripts', 'my_scripts' );
 
 
 /**
@@ -210,3 +220,83 @@ function my_custom_nav( $classes, $item ) {
 	}
 	return $classes;
 }
+
+// サイト表示ボタン
+if (is_admin()) {
+function mycustom_admin_bar_add_siteview_button() {
+global $wp_admin_bar;
+$wp_admin_bar->add_menu( array(
+'id' => 'check',
+'title' => 'サイト表示！',
+'href' => '/',
+'meta' => array('target' => '_blank')
+));
+}
+add_action( 'wp_before_admin_bar_render', 'mycustom_admin_bar_add_siteview_button' );
+}
+
+add_filter( 'body_class', 'add_page_slug_class_name' );
+function add_page_slug_class_name( $classes ) {
+  if ( is_page() ) {
+	$page = get_post( get_the_ID() );
+	$classes[] = $page->post_name;
+  }
+  return $classes;
+}
+
+function new_excerpt_mblength($length) {
+	 return 95;
+}
+add_filter('excerpt_mblength', 'new_excerpt_mblength');
+
+function new_excerpt_more($more) {
+	return '…Read more';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+function my_posy_search($search) {
+	if(is_search()) {
+		$search .= " AND post_type = 'post'";
+	}
+  return $search;
+}
+add_filter('posts_search', 'my_posy_search');
+
+
+
+/* 投稿アーカイブページの作成 */
+function post_has_archive( $args, $post_type ) {
+
+	if ( 'post' == $post_type ) {
+		$args['rewrite'] = true;
+		$args['label'] = 'ニュース';
+		$args['has_archive'] = 'news'; //任意のスラッグ名
+	}
+	return $args;
+
+}
+add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
+
+
+
+/* the_archive_title 余計な文字を削除 */
+add_filter( 'get_the_archive_title', function ($title) {
+    if (is_category()) {
+        $title = single_cat_title('',false);
+    } elseif (is_tag()) {
+        $title = single_tag_title('',false);
+	} elseif (is_tax()) {
+	    $title = single_term_title('',false);
+	} elseif (is_post_type_archive() ){
+		$title = post_type_archive_title('',false);
+	} elseif (is_date()) {
+	    $title = get_the_time('Y年n月');
+	} elseif (is_search()) {
+	    $title = '検索結果：'.esc_html( get_search_query(false) );
+	} elseif (is_404()) {
+	    $title = '「404」ページが見つかりません';
+	} else {
+
+	}
+    return $title;
+});

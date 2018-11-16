@@ -10,6 +10,7 @@ var cleanCss = require('gulp-clean-css');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var htmlmin = require('gulp-htmlmin');
 
 gulp.task('sass',function(){
 	return gulp.src(['sass/**/*.scss'])
@@ -27,7 +28,7 @@ gulp.task('sass',function(){
 			suffix: '.min'
 		}))
 		.pipe(cleanCss())
-		.pipe(gulp.dest('./min/'))
+		.pipe(gulp.dest('./'))
 });
 gulp.task('js',function(){
 	return gulp.src(['js/**/*.js'])
@@ -39,15 +40,20 @@ gulp.task('js',function(){
 		}))
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
-		.pipe(concat('main.js'))
+		.pipe(concat('common.js'))
 		.pipe(gulp.dest('./'))
 		.pipe(rename({
 			suffix: '.min'
 		}))
 		.pipe(uglify())
-		.pipe(gulp.dest('./min/'))
+		.pipe(gulp.dest('./'))
 });
 
+gulp.task('htmlmin', function() {
+	return gulp.src('./**/*.html')
+		.pipe(htmlmin({collapseWhitespace: true}))
+		.pipe(gulp.dest('./dist'))
+});
 
 //変更を監視
 gulp.task('watch', () => {

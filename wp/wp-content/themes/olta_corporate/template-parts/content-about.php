@@ -10,8 +10,16 @@
 ?>
 
 
+<form role="search" method="get" class="search-form" action="http://olta-corporate/">
+				<label>
+					<span class="screen-reader-text">検索:</span>
+					<input type="search" class="search-field" placeholder="検索 &hellip;" value="" name="s" />
+				</label>
+				<input type="submit" class="search-submit" value="検索" />
+			</form>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 <article id="post-<?php the_ID(); ?>" >
 
 	<!--<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>-->

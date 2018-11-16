@@ -11,6 +11,22 @@
 }
 
 
+
+
+@keyframes fadeSubMenu0l {
+	100% {
+		transform: rotate(-45deg);
+		-webkit-transform: rotate(-45deg);
+		margin-right: -30px;
+	}
+}
+@keyframes fadeSubMenu0r {
+	100% {
+		transform: rotate(-135deg);
+		-webkit-transform: rotate(-135deg);
+		margin-left: -30px;
+	}
+}
 @keyframes fadeSubMenu1 {
 	0% {
 		opacity: 0;

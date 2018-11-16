@@ -15,11 +15,17 @@
 
 	<footer id="colophon" class="site-footer">
 
-		<?php dynamic_sidebar('フッター１'); ?>
+		<div class="sp-disp"><?php dynamic_sidebar('フッター１'); ?></div>
 
 
 		<div class="site-info">
-			<p>&copy; <?php echo date(Y); ?> OLTA Inc. All Rights Reserved.</p>
+			<ul class="pc-disp">
+				<li><a href="http://olta-corporate/policy/">プライバシーポリシー</a></li>
+				<li><a href="http://olta-corporate/security/">情報セキュリティ方針</a></li>
+				<li>&copy; <?php echo date(Y); ?> OLTA Inc. All Rights Reserved.</li>
+			</ul>
+
+			<p class="sp-disp">&copy; <?php echo date(Y); ?> OLTA Inc. All Rights Reserved.</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

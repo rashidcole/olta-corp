@@ -1,0 +1,180 @@
+
+body.archive {
+	background-color: #f9f9f9;
+
+	h1 {
+		position: relative;
+		display: inline-block;
+		background-color: #64D2DD;
+		font-size: 5vw;
+		color: #fff;
+		text-align: left;
+		width: 39.68vw;
+		height: 9.35vw;
+		line-height: 9.35vw;
+		position: relative;
+		padding-left: 5.93vw;
+		margin: 0;
+		margin-top: 60px;
+		margin-bottom: 35px;
+	}
+
+	#sec-news {
+
+		.sec-inner {
+			padding-top: 0;
+		}
+
+		form {
+			margin: 0 6.25vw 35px 6.25vw;
+			width: calc(100% - 12.5vw);
+				border: 1px solid #e0e0e0;
+				background-color: #fff;
+
+			label {
+				border: none;
+				outline: none;
+			}
+
+			input {
+				box-sizing: border-box;
+				display: inline-block;
+				font-size: 15px;
+				border: none;
+				line-height: 22px;
+				height: 45px;
+				font-size: 15px;
+				background-color: #fff;
+
+				&.search-field {
+					width: calc(100% - 48px);
+					padding: 12px 5px 12px 15px;
+				}
+
+				&:placeholder-shown {
+					color: #e0e0e0;
+				}
+
+				&.search-submit {
+					width: 44px;
+					padding: 12px 15px 12px 5px;
+					color: #aaa;
+
+				}
+			}
+		}
+
+		article {
+
+			h2 {
+				width: auto;
+				height: auto;
+				display: block;
+				background: none;
+				color: #4a4a4a;
+				margin: 0;
+				font-size: 17px;
+				font-weight: normal;
+				text-align: left;
+				line-height: 1.47;
+				margin-top: 39px;
+			}
+		}
+	}
+
+	.wp-pagenavi {
+		text-align: center;
+		margin-top: 70px;
+
+		.pages{
+			display: none;
+		}
+		span, a {
+			display: inline-block;
+			margin: 0 11px;
+			text-align: center;
+			color: #aaa;
+			line-height: 30px;
+			font-size: 14px;
+			text-decoration: none;
+			background-color: #efefef;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+
+			&.current, &:hover {
+				color: #fff;
+				background-color: #207FEF;
+			}
+		}
+	}
+}
+
+
+@media screen and (min-width: 768px) {
+
+	body.archive {
+
+		.entry-header {
+			position: relative;
+			width: 820px;
+			margin: 0 auto;
+			padding: 0;
+		}
+
+		.search-form {
+			display: none;
+		}
+
+		h1 {
+			font-size: 27px;
+			width: 314px;
+			height: 75px;
+			line-height: 75px;
+			margin-left: -70px;
+			padding-left: 0;
+			text-align: center;
+			margin-top: 100px;
+			margin-bottom: 100px;
+		}
+
+		#sec-news {
+			padding-bottom: 0;
+
+			article {
+				margin: 0 auto -1px auto;
+				padding: 45px 0 31px 0;
+				width: 800px;
+				border-top: 1px solid #979797;
+				border-bottom: 1px solid #979797;
+				border-collapse: collapse;
+
+				span {
+
+					&.post-date {
+						font-size: 13px;
+					}
+					&.post-category {
+						font-size: 14px;
+					}
+				}
+
+				h2 {
+					flex-basis: calc(100% - 245px);
+					font-size: 21px;
+					font-weight: normal;
+					text-align: left;
+					line-height: 25px;
+					margin-top: -2px;
+					margin-bottom: 15px;
+					padding-left: 0;
+				}
+
+				.accordion_icon,
+				.accordion_icon span {
+					display: none;
+				}
+			}
+		}
+	}
+}
