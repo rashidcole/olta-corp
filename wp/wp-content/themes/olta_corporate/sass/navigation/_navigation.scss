@@ -54,7 +54,6 @@
 		&.toggled ul {
 			z-index: 99;
 		}
-
 	}
 
 
@@ -81,7 +80,7 @@
 		height: 2px;
 		margin: -1px 0 0 -7px;
 		background: #494949;
-		transition: .4s;
+		transition: .3s;
 
 		&:before,
 		&:after{
@@ -93,7 +92,7 @@
 			width: 16px;
 			height: 2px;
 			background: #494949;
-			transition: .4s;
+			transition: .3s;
 		}
 		&:before{
 			margin-top: -8px;
@@ -101,7 +100,6 @@
 		&:after{
 			margin-top: 6px;
 		}
-
 		&.close{
 			background: transparent;
 		}
@@ -147,11 +145,9 @@
 				border-radius: 50%;
 			}
 
-
 			&.opened {
 
 				span {
-
 
 					&:nth-child(2) {
 						display: none;
@@ -166,16 +162,15 @@
 
 					&:nth-child(1) {
 						animation-fill-mode: forwards;
-						animation-duration:0.9s;
+						animation-duration:0.7s;
 						animation-name: fadeSubMenu0l;
 					}
 
 					&:nth-child(3) {
 						animation-fill-mode: forwards;
-						animation-duration:0.9s;
+						animation-duration:0.7s;
 						animation-name: fadeSubMenu0r;
 					}
-
 				}
 			}
 		}
@@ -219,31 +214,29 @@
 			}
 
 			.opened1 {
-				animation-duration:0.9s;
+				animation-duration:0.7s;
 				animation-name: fadeSubMenu1;
 				visibility: visible !important;
 			}
 			.opened2 {
-				animation-duration:0.6s;
+				animation-duration:0.5s;
 				animation-name: fadeSubMenu2;
 				visibility: visible !important;
 			}
 			.closed1 {
-				animation-duration:0.9s;
+				animation-duration:0.7s;
 				animation-name: fadeSubMenu11;
 				visibility: visible !important;
 				animation-fill-mode: forwards;
 			}
 			.closed2 {
-				animation-duration:0.6s;
-				animation-delay: 0.2s;
+				animation-duration:0.5s;
+				animation-delay: 0.1s;
 				animation-name: fadeSubMenu22;
 				visibility: visible !important;
 				animation-fill-mode: forwards;
 			}
-
 		}
-
 	}
 
 
@@ -286,9 +279,6 @@
 			}
 		}
 	}
-
-
-
 }
 
 
@@ -298,21 +288,61 @@
 
 @media screen and (min-width: 768px) {
 
-	.site-header {
-		display: table;
+
+	.main-navigation {
+		flex-basis: 720px;
+		display: block;
+		margin-left: auto;
+		width: inherit;
+		vertical-align: middle;
+
+		ul {
+			display: table;
+			margin: 0;
+			margin-left: auto;
+			padding: 0;
+
+			li {
+				width: auto;
+				display: table-cell;
+
+				a {
+					padding: 0 23px;
+					font-size: 12px;
+					color: #4a4a4a;
+				}
+
+				&:last-of-type a {
+					padding-right: 0;
+				}
+
+			}
+
+		}
+
+
 	}
 
-		#menu-toggle {
-			display: none;
-		}
-		.main-navigation,
-		.main-navigation #primary-menu {
-			display: block;
-		}
+	body.index {
 
-		#submenu {
+		.main-navigation {
 			display: none;
 		}
+	}
+
+	#menu-toggle {
+		display: none;
+
+	}
+
+	#primary-menu {
+		display: block;
+		text-align: right;
+	}
+
+	#submenu {
+		display: none;
+	}
 
 
 	.site-footer {
@@ -358,14 +388,6 @@
 				}
 			}
 		}
-
 	}
-
-
-
-
-
 }
-
-
 

@@ -16,7 +16,7 @@
 	?>
 	<span class="post-date"><?php the_time( 'Y.m.d' ); ?></span>
 	<span class="post-category"><?php echo $catName; ?></span>
-	<h2><?php the_title(); ?></h2>
+	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<p class="accordion_icon"><span></span><span></span></p>
 	<section>
 		<div class="pc-disp"><?php the_excerpt(); ?></div>

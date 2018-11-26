@@ -10,9 +10,9 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<!-- 	<header class="entry-header">
 		<h1 class="archive_title">ニュース</h1>
-	</header><!-- .entry-header -->
+	</header> --><!-- .entry-header -->
 
 	<?php olta_corporate_post_thumbnail(); ?>
 
@@ -20,15 +20,7 @@
 
 		<section class="content-section" id="sec-news">
 			<div class="sec-inner">
-
-				<form role="search" method="get" class="search-form" action="http://olta-corporate/">
-					<label>
-						<span class="screen-reader-text">検索:</span>
-						<input type="search" class="search-field" placeholder="ニュースを検索できます" value="" name="s" />
-					</label>
-					<input type="submit" class="search-submit fas" value="&#xf002;" />
-				</form>
-
+				<h1><?php the_title(); ?></h1>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php
 						$cat = get_the_category();
@@ -36,7 +28,20 @@
 					?>
 					<span class="post-date"><?php the_time( 'Y.m.d' ); ?></span>
 					<span class="post-category"><?php echo $catName; ?></span>
-					<h2><?php the_title(); ?></h2>
+
+					<ul class="sns-btn pc-disp">
+						<?php
+						  $url_encode=urlencode(get_permalink());
+						  $title_encode=urlencode(get_the_title());
+						?>
+							<li class="fb">
+							<a href="http://www.facebook.com/sharer.php?src=bm&u=<?php echo $url_encode;?>&t=<?php echo $title_encode;?>" class="naifix-sns-button"><i class="fas fa-thumbs-up"></i>いいね！</a><?php if(function_exists('scc_get_share_facebook')): ?><span class="sns-counter"><?php echo scc_get_share_facebook() ?></span><?php endif; ?></li>
+							<li class="tw">
+							<a href="http://twitter.com/share?text=<?php echo $title_encode ?>&url=<?php echo $url_encode ?>&tw_p=tweetbutton&via=<?php the_author_meta('twitter'); ?>&related=<?php the_author_meta('twitter'); ?>" class="naifix-sns-button"><i class="fab fa-twitter"></i>ツイート</a><?php if(function_exists('scc_get_share_twitter')): ?><span class="sns-counter"><?php echo scc_get_share_twitter() ?></span><?php endif; ?></li>
+							<li class="hb">
+							<a href="http://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $url_encode ?>" class="naifix-sns-button"><span>Ｂ!</span>ブックマーク</a><?php if(function_exists('scc_get_share_hatebu')): ?><span class="sns-counter"><?php echo scc_get_share_hatebu() ?></span><?php endif; ?></li>
+						</ul>
+
 					<section>
 
 								<?php
@@ -60,7 +65,7 @@
 								?>
 
 
-							<ul class="sns-btn">
+							<ul class="sns-btn sp-disp">
 							<?php
 							  $url_encode=urlencode(get_permalink());
 							  $title_encode=urlencode(get_the_title());
@@ -76,14 +81,10 @@
 
 				</article><!-- #post-<?php the_ID(); ?> -->
 
-			</div>
-		</section><!-- .content #sec-news -->
-
-	</div><!-- .entry-content -->
 	<div class="post-navigation">
 		<?php 
 		if (get_previous_post()): ?>
-			<?php previous_post_link('%link', '前のニュースへ &gt;'); ?>
+			<?php previous_post_link('%link', '&lt; 前のニュースへ'); ?>
 		<?php 
 		endif;
 		if (get_next_post()): ?>
@@ -91,6 +92,13 @@
 		<?php 
 		endif; 
 		?>
-		<a href="/news/">ニュース一覧 &gt;</a>
+		<a href="/news/">ニュース一覧</a>
 	</div>
+
+
+			</div>
+		</section><!-- .content #sec-news -->
+
+	</div><!-- .entry-content -->
+
 </article><!-- #post-<?php the_ID(); ?> -->

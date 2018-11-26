@@ -12,8 +12,12 @@
 <article id="post-<?php the_ID(); ?>" class="">
 
 	<section class="content-section" id="sec-hero">
+		<div id="img-ceo"><img src="/wp/wp-content/themes/olta_corporate/images/CEO.png" alt=""></div>
+		<div id="img-sun"><img src="/wp/wp-content/themes/olta_corporate/images/Sun.png" alt=""></div>
+		<div id="img-birds"><img src="/wp/wp-content/themes/olta_corporate/images/Birds.png" alt=""></div>
 		<div class="sec-inner">
 			<h1 class="prefade prefade-001">会社経営を<br>ハックする<br><span><img src="/wp/wp-content/themes/olta_corporate/images/main-title.svg" alt="olta"></span></h1>
+
 		</div>
 	</section><!-- .content #sec-hero -->
 
@@ -22,7 +26,7 @@
 			<h2 class="">ミッション</h2>
 			<h3 class="fade"><img src="/wp/wp-content/themes/olta_corporate/images/txt-redesign.svg" alt="Credit Re:design"></h3>
 			<h4>あらゆる情報を信用に変え<br class="sp-disp">あたらしい価値を創出する</h4>
-			<a href="" class="link-btn fade">OLTAについて<span class="pc-disp">&nbsp;></span></a>
+			<a href="./about/" class="link-btn fade">OLTAについて<span class="pc-disp">&nbsp;></span></a>
 		</div>
 	</section><!-- .content #sec-mission -->
 
@@ -32,8 +36,10 @@
 			<h3 class="fade">クラウドファクタリング<br class="sp-disp">OLTA</h3>
 			<h4>請求書が売れる。<br>オフィスにいながら資金調達が可能な<br class="pc-disp">日本初のファクタリングサービスです。</h4>
 			<img src="/wp/wp-content/themes/olta_corporate/images/img-service-device.png" alt="" id="img-service-device" class="fade">
-			<img src="/wp/wp-content/themes/olta_corporate/images/img-service-capture.png" alt="" id="img-service-capture" class="fade">
-			<span class="sp-disp"><a href="" class="link-btn fade">もっと詳しく<span class="pc-disp">&nbsp;></span></a></span>
+			<div class="movie-wrap">
+				<div class="youtube-video fade" id="demo-1" data-video-id="f0vd-ELcz8Q" width="560" height="315"></div>
+			</div>
+			<a href="" class="link-btn fade">もっと詳しく<span class="pc-disp">&nbsp;></span></a>
 		</div>
 	</section><!-- .content #sec-service -->
 
@@ -65,10 +71,11 @@
 			?>
 
 			<article class="fade">
-				<span class="post-date"><?php the_time( 'Y.m.d' ); ?></span>
+				<span class="post-date"><?php the_time('Y.m.d'); ?></span>
 				<span class="post-category"><?php echo $catName; ?></span>
-				<h3><?php the_title(); ?></h3>
+				<h3 class="accordion_text"><?php the_title(); ?></h3>
 				<p class="accordion_icon"><span></span><span></span></p>
+
 				<section>
 					<div class="pc-disp"><?php the_excerpt(); ?></div>
 					<div class="sp-disp">
@@ -95,7 +102,7 @@
 			  <p>新しい記事はありません</p>
 			<?php endif; ?>
 
-			<a href="" class="link-btn news-link fade">ニュース一覧<span class="pc-disp">&nbsp;></span></a>
+			<a href="./news/" class="link-btn news-link fade">ニュース一覧<span class="pc-disp">&nbsp;></span></a>
 
 		</div>
 	</section><!-- .content #sec-service -->

@@ -56,7 +56,7 @@
 	@if ($width == null) {
 		background-size: 100% 100%;
 	}
-
+	overflow: hidden;
 	content: '';
 	height: $height * 1px;
 	left: 0;
@@ -64,6 +64,8 @@
 	right: 0;
 	width: 100%;
 	z-index: 1;
+	border: none;
+	margin-top: -1px;
 }
 
 /// Attatches an svg wedge shape to an element.
@@ -131,7 +133,7 @@
 	} @else if ($location == 'outside bottom') {
 		&::after {
 			@include ae-pseudo($encoded-wedge, $height, $width);
-			bottom: -$height * 1px;
+			bottom: -$height * 1px + 1px;
 		}
 	} @else {
 		@error 'Invalid argument for $location - must use: `inside top`, `outside top`, `inside bottom`, `outside bottom`';

@@ -182,7 +182,7 @@ function add_tag_to_page() {
  register_taxonomy_for_object_type('post_tag', 'page');
 }
 add_action('init', 'add_tag_to_page');
- 
+
 
 /* インラインスタイル削除 */
 function remove_recent_comments_style() {
@@ -224,36 +224,42 @@ function my_custom_nav( $classes, $item ) {
 // サイト表示ボタン
 if (is_admin()) {
 function mycustom_admin_bar_add_siteview_button() {
-global $wp_admin_bar;
-$wp_admin_bar->add_menu( array(
-'id' => 'check',
-'title' => 'サイト表示！',
-'href' => '/',
-'meta' => array('target' => '_blank')
-));
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_node( 'wp-logo' );
+	$wp_admin_bar->remove_node( 'comments' );
+	$wp_admin_bar->add_menu( array(
+		'id' => 'check',
+		'title' => 'サイトを表示',
+		'href' => '/',
+		'meta' => array('target' => '_blank')
+	));
 }
 add_action( 'wp_before_admin_bar_render', 'mycustom_admin_bar_add_siteview_button' );
 }
 
+
+
+// bodyにクラス（スラッグ）を追加
 add_filter( 'body_class', 'add_page_slug_class_name' );
 function add_page_slug_class_name( $classes ) {
-  if ( is_page() ) {
-	$page = get_post( get_the_ID() );
-	$classes[] = $page->post_name;
-  }
-  return $classes;
+	if ( is_page() ) {
+		$page = get_post( get_the_ID() );
+		$classes[] = $page->post_name;
+	}
+	return $classes;
 }
 
+
+
+// Read more
 function new_excerpt_mblength($length) {
 	 return 95;
 }
 add_filter('excerpt_mblength', 'new_excerpt_mblength');
-
 function new_excerpt_more($more) {
-	return '…Read more';
+	return '...<a class="readmore" href="'. esc_url( get_permalink() ) . '">' . 'Read more' . '</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
-
 function my_posy_search($search) {
 	if(is_search()) {
 		$search .= " AND post_type = 'post'";
@@ -281,22 +287,43 @@ add_filter( 'register_post_type_args', 'post_has_archive', 10, 2 );
 
 /* the_archive_title 余計な文字を削除 */
 add_filter( 'get_the_archive_title', function ($title) {
-    if (is_category()) {
-        $title = single_cat_title('',false);
-    } elseif (is_tag()) {
-        $title = single_tag_title('',false);
+	if (is_category()) {
+		$title = single_cat_title('',false);
+	} elseif (is_tag()) {
+		$title = single_tag_title('',false);
 	} elseif (is_tax()) {
-	    $title = single_term_title('',false);
+		$title = single_term_title('',false);
 	} elseif (is_post_type_archive() ){
 		$title = post_type_archive_title('',false);
 	} elseif (is_date()) {
-	    $title = get_the_time('Y年n月');
+		$title = get_the_time('Y年n月');
 	} elseif (is_search()) {
-	    $title = '検索結果：'.esc_html( get_search_query(false) );
+		$title = '検索結果：'.esc_html( get_search_query(false) );
 	} elseif (is_404()) {
-	    $title = '「404」ページが見つかりません';
+		$title = '「404」ページが見つかりません';
 	} else {
 
 	}
-    return $title;
+	return $title;
 });
+
+
+//svg
+function my_ext2type($ext2types) {
+	array_push($ext2types, array('image' => array('svg', 'svgz')));
+	return $ext2types;
+}
+add_filter('ext2type', 'my_ext2type');
+
+function my_mime_types($mimes){
+	$mimes['svg'] = 'image/svg+xml';
+	$mimes['svgz'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter('upload_mimes', 'my_mime_types');
+
+function my_mime_to_ext($mime_to_ext) {
+	$mime_to_ext['image/svg+xml'] = 'svg';
+	return $mime_to_ext;
+}
+add_filter('getimagesize_mimes_to_exts', 'my_mime_to_ext');

@@ -11,9 +11,10 @@ var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var htmlmin = require('gulp-htmlmin');
+var browserSync = require('browser-sync').create();
 
 gulp.task('sass',function(){
-	return gulp.src(['sass/**/*.scss'])
+	return gulp.src(['./sass/**/*.scss'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -30,8 +31,9 @@ gulp.task('sass',function(){
 		.pipe(cleanCss())
 		.pipe(gulp.dest('./'))
 });
+
 gulp.task('js',function(){
-	return gulp.src(['js/**/*.js'])
+	return gulp.src(['./js/**/*.js'])
 		.pipe(plumber({
 			handleError: function (err) {
 				console.log(err);
@@ -55,15 +57,21 @@ gulp.task('htmlmin', function() {
 		.pipe(gulp.dest('./dist'))
 });
 
-//変更を監視
-gulp.task('watch', () => {
-  gulp.watch('sass/**/*.scss', gulp.series('sass'));
-})
+gulp.task('watch', function () {
+	gulp.watch('./sass/**/*.scss', gulp.series('sass'));
+	gulp.watch('./js/**/*.js', gulp.series('js'));
+});
 
-//デフォルトタスク
-gulp.task("default",
-  gulp.series(
-    'watch'
-  )
-);
+gulp.task('browser-sync', function() {
+	browserSync.init({
+		port: 80,
+		files: ['./sass/**/*.scss','./**/*.php','./js/**/*.js'],
+		proxy: "http://olta-corporate/"
+	});
+});
 
+gulp.task('default', gulp.series(
+	'sass','js',
+	// gulp.parallel('watch','browser-sync')
+	gulp.parallel('watch')
+));

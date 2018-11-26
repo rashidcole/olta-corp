@@ -31,6 +31,7 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqAEhTSdjmV61OfpswgG5T-lfMa2wdSRA&callback=initMap"
+    async defer></script>
 </body>
 </html>

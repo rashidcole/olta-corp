@@ -1,28 +1,29 @@
 {
-  "name": "olta_corporate",
-  "version": "1.0.0",
-  "description": "WordPress Theme Dev",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "OLTA",
-  "license": "ISC",
-  "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "es6-promise": "^4.2.5",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
-    "gulp-clean-css": "^3.10.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-jshint": "^2.1.0",
-    "gulp-merge-media-queries": "^0.2.1",
-    "gulp-plumber": "^1.2.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-uglify": "^3.0.1",
-    "jshint": "^2.9.6",
-    "minimatch": "^3.0.4"
-  }
+	"name": "olta_corporate",
+	"version": "1.0.0",
+	"description": "WordPress Theme Dev",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "OLTA",
+	"license": "ISC",
+	"devDependencies": {
+		"auto-prefixer": "^0.4.2",
+		"browser-sync": "^2.26.3",
+		"es6-promise": "^4.2.5",
+		"gulp": "^4.0.0",
+		"gulp-autoprefixer": "^6.0.0",
+		"gulp-clean-css": "^3.10.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-htmlmin": "^5.0.1",
+		"gulp-jshint": "^2.1.0",
+		"gulp-merge-media-queries": "^0.2.1",
+		"gulp-plumber": "^1.2.0",
+		"gulp-rename": "^1.4.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-uglify": "^3.0.1",
+		"jshint": "^2.9.6",
+		"minimatch": "^3.0.4"
+	}
 }
