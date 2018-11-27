@@ -707,7 +707,7 @@ input[type="checkbox"]:checked:after {
 	display: block;
 	top: 6px;
 	left: 5px;
-	background-image: url(/wp/wp-content/themes/olta_corporate/images/checked.svg);
+	background-image: url(/wp-content/themes/olta_corporate/images/checked.svg);
 	background-size: 13px 13px;
 }
 
@@ -1337,7 +1337,7 @@ article {
 
 body.index #sec-hero {
 	position: relative;
-	background-image: url(/wp/wp-content/themes/olta_corporate/images/bg-hero.png);
+	background-image: url(/wp-content/themes/olta_corporate/images/bg-hero.png);
 	background-size: 100% auto;
 	background-repeat: no-repeat;
 	background-position: center bottom;
@@ -2542,7 +2542,7 @@ input[type="checkbox"]:checked:after {
 	display: block;
 	top: 8px;
 	left: 8px;
-	background-image: url(/wp/wp-content/themes/olta_corporate/images/checked.svg);
+	background-image: url(/wp-content/themes/olta_corporate/images/checked.svg);
 	background-size: 18px 18px;
 }
 
@@ -2721,7 +2721,7 @@ body.index #content {
 body.index #sec-hero {
 	height: 56.5vw;
 	background-size: 100% auto;
-	background-image: url(/wp/wp-content/themes/olta_corporate/images/bg-kv.png);
+	background-image: url(/wp-content/themes/olta_corporate/images/bg-kv.png);
 	margin-top: -150px;
 }
 

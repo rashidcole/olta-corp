@@ -221,23 +221,6 @@ function my_custom_nav( $classes, $item ) {
 	return $classes;
 }
 
-// サイト表示ボタン
-if (is_admin()) {
-function mycustom_admin_bar_add_siteview_button() {
-	global $wp_admin_bar;
-	$wp_admin_bar->remove_node( 'wp-logo' );
-	$wp_admin_bar->remove_node( 'comments' );
-	$wp_admin_bar->add_menu( array(
-		'id' => 'check',
-		'title' => 'サイトを表示',
-		'href' => '/',
-		'meta' => array('target' => '_blank')
-	));
-}
-add_action( 'wp_before_admin_bar_render', 'mycustom_admin_bar_add_siteview_button' );
-}
-
-
 
 // bodyにクラス（スラッグ）を追加
 add_filter( 'body_class', 'add_page_slug_class_name' );

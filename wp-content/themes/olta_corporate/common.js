@@ -1955,7 +1955,7 @@ function initMap() {
 		map: map,
 		position: mapPosition,
 		icon: new google.maps.MarkerImage(
-		'/wp/wp-content/themes/olta_corporate/images/gmap-marker.svg',
+		'/wp-content/themes/olta_corporate/images/gmap-marker.svg',
 		new google.maps.Size(47,62)
 		),
 	  };

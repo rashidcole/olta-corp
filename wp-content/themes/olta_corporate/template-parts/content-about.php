@@ -16,7 +16,7 @@
 		<div class="sec-inner">
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			<div class="sec-block prefade prefade-002">
-				<h2><img src="/wp/wp-content/themes/olta_corporate/images/txt-redesign.svg" alt="Credit Re:desing"></h2>
+				<h2><img src="/wp-content/themes/olta_corporate/images/txt-redesign.svg" alt="Credit Re:desing"></h2>
 				<h3>あらゆる情報を信用に変え<br>あたらしい価値を創出する</h3>
 			</div>
 			<div class="sec-block-txt">
@@ -63,20 +63,20 @@
 	<section class="content-section" id="sec-recruit">
 		<div class="sec-inner">
 			<h2 class="">採用情報</h2>
-			<img src="/wp/wp-content/themes/olta_corporate/images/img-recruit-pc.png" class="pc-disp" />
+			<img src="/wp-content/themes/olta_corporate/images/img-recruit-pc.png" class="pc-disp" />
 			<div class="sec-block fade">
 				<div class="slide-block">
 					<ul id="bxslide">
-						<li><img src="/wp/wp-content/themes/olta_corporate/images/img-recruit.png" /></li>
-						<li><img src="/wp/wp-content/themes/olta_corporate/images/img-recruit.png" /></li>
-						<li><img src="/wp/wp-content/themes/olta_corporate/images/img-recruit.png" /></li>
-						<li><img src="/wp/wp-content/themes/olta_corporate/images/img-recruit.png" /></li>
+						<li><img src="/wp-content/themes/olta_corporate/images/img-recruit.png" /></li>
+						<li><img src="/wp-content/themes/olta_corporate/images/img-recruit.png" /></li>
+						<li><img src="/wp-content/themes/olta_corporate/images/img-recruit.png" /></li>
+						<li><img src="/wp-content/themes/olta_corporate/images/img-recruit.png" /></li>
 					</ul>
 					<div class="custom-thumb">
-						<a data-slide-index="0" href="#"><img src="/wp/wp-content/themes/olta_corporate/images/img-recruit.png"/></a>
-						<a data-slide-index="1" href="#"><img src="/wp/wp-content/themes/olta_corporate/images/img-recruit.png"/></a>
-						<a data-slide-index="2" href="#"><img src="/wp/wp-content/themes/olta_corporate/images/img-recruit.png"/></a>
-						<a data-slide-index="3" href="#"><img src="/wp/wp-content/themes/olta_corporate/images/img-recruit.png"/></a>
+						<a data-slide-index="0" href="#"><img src="/wp-content/themes/olta_corporate/images/img-recruit.png"/></a>
+						<a data-slide-index="1" href="#"><img src="/wp-content/themes/olta_corporate/images/img-recruit.png"/></a>
+						<a data-slide-index="2" href="#"><img src="/wp-content/themes/olta_corporate/images/img-recruit.png"/></a>
+						<a data-slide-index="3" href="#"><img src="/wp-content/themes/olta_corporate/images/img-recruit.png"/></a>
 					</div>
 				</div>
 				<a href="https://www.wantedly.com/companies/olta" class="link-btn fade" target="_blank">Wantedlyで詳しく見る<span class="pc-disp">&nbsp;></span></a>
@@ -106,7 +106,7 @@
 					<dt>住所</dt>
 					<dd>〒107-0062　東京都港区南青山一丁目15番41号<br>QCcube南青山115ビル 3階</dd>
 					<dt>認証取得</dt>
-					<dd><p><img src="/wp/wp-content/themes/olta_corporate/images/img-iso.png"/><br><span>ISO 27001 / IS 688510</span></p></dd>
+					<dd><p><img src="/wp-content/themes/olta_corporate/images/img-iso.png"/><br><span>ISO 27001 / IS 688510</span></p></dd>
 				</dl>
 				<div id="map"></div>
 			</div>

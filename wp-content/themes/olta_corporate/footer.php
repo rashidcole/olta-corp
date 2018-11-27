@@ -20,8 +20,8 @@
 
 		<div class="site-info">
 			<ul class="pc-disp">
-				<li><a href="http://olta-corporate/policy/">プライバシーポリシー</a></li>
-				<li><a href="http://olta-corporate/security/">情報セキュリティ方針</a></li>
+				<li><a href="/policy/">プライバシーポリシー</a></li>
+				<li><a href="/security/">情報セキュリティ方針</a></li>
 				<li>&copy; <?php echo date(Y); ?> OLTA Inc. All Rights Reserved.</li>
 			</ul>
 

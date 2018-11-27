@@ -26,7 +26,7 @@
 <div id="page" class="site">
 
 	<header id="masthead" class="site-header">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="site-title"><img src="/wp/wp-content/themes/olta_corporate/images/logo.svg" alt="olta"></a>
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="site-title"><img src="/wp-content/themes/olta_corporate/images/logo.svg" alt="olta"></a>
 		<nav id="site-navigation" class="main-navigation">
 			<button id="menu-toggle" ><span id="menu-toggle-icon"></span></button>
 			<div id="primary-menu" class="menu">
