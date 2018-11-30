@@ -86,13 +86,6 @@ $(".accordion_text").on("click",function(){
 });
 
 
-
-
-
-
-
-
-
 var myPromise = $.when(
 	$('head').append('<style>body{display:none;}'),
 	$('body').delay(900).fadeIn("slow")
@@ -119,3 +112,6 @@ myPromise.done(function() {
 		controls: false
 	});
 });
+
+
+

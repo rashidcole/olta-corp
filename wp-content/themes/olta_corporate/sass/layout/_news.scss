@@ -68,9 +68,10 @@ body.archive {
 				box-sizing: border-box;
 				justify-content: space-between;
 				flex-wrap: wrap;
+				flex-direction: row-reverse;
 				background-color: #fff;
 				margin: 24px 6.25vw;
-				padding: 11px 8px 30px 8px;
+				padding: 11px 8px 45px 8px;
 				width: calc(100% - 12.5vw);
 				box-shadow: 0 2px 4px 0 rgba(196,196,196,0.50);
 				transition: all .3s linear 0s;
@@ -87,16 +88,18 @@ body.archive {
 						flex-basis: 50%;
 						font-size: 14px;
 						color: #207FEF;
+						text-align: right;
 					}
 
 					&.post-category {
 						flex-basis: 50%;
 						font-size: 14px;
-						text-align: right;
+						text-align: left;
 					}
 				}
 
 				h2 {
+					flex-basis: 100%;
 					width: auto;
 					height: auto;
 					display: block;
@@ -250,6 +253,7 @@ body.archive {
 
 				article {
 					background: none;
+					flex-direction: row;
 					margin: 0 auto -1px auto;
 					padding: 45px 0 31px 0;
 					width: 800px;
@@ -270,6 +274,7 @@ body.archive {
 							flex-basis: 87px;
 							line-height: 25px;
 							font-size: 13px;
+							text-align: left;
 						}
 						&.post-category {
 							flex-basis: 158px;

@@ -4,7 +4,7 @@ function initMap() {
 	var mapArea = document.getElementById('map');
 	var mapOptions = {
 		center: mapPosition,
-		zoom: 13,
+		zoom: 15,
 		styles:[
 		{
 			"elementType": "geometry",
@@ -221,6 +221,21 @@ function initMap() {
 		]
 	};
 	  var map = new google.maps.Map(mapArea, mapOptions);
+
+	var w = $(window).width();
+	var x = 767;
+
+    if (w <= x) {
+	  var markerOptions = {
+		map: map,
+		position: mapPosition,
+		icon: new google.maps.MarkerImage(
+		'/wp-content/themes/olta_corporate/images/gmap-marker-sp.svg',
+		new google.maps.Size(28,38)
+		),
+	  };
+	  var marker = new google.maps.Marker(markerOptions);
+    } else {
 	  var markerOptions = {
 		map: map,
 		position: mapPosition,
@@ -230,15 +245,6 @@ function initMap() {
 		),
 	  };
 	  var marker = new google.maps.Marker(markerOptions);
-
-
-
-
-
-
-
-
-
-
+    }
 
 	}

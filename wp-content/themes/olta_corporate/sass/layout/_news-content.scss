@@ -6,7 +6,7 @@ body.single {
 		padding-bottom: 0;
 
 		.sec-inner {
-			padding-top: 0;
+			padding-top: 45px;
 		}
 
 		h1 {
@@ -23,10 +23,14 @@ body.single {
 			line-height: 1.47;
 			margin-top: 0;
 			width: 100%;
-			border-bottom: 1px solid #979797;
-			margin: 40px 28px 20px 28px;
+			border-bottom: none;
+			margin: 40px 0 0 0;
 			padding-bottom: 20px;
 			font-weight: normal;
+
+			&.pc-disp {
+				display: none;
+			}
 		}
 
 		article {
@@ -34,6 +38,7 @@ body.single {
 			box-sizing: border-box;
 			justify-content: space-between;
 			flex-wrap: wrap;
+			flex-direction: row-reverse;
 
 			margin: 24px 0;
 			padding: 0 28px;
@@ -46,12 +51,13 @@ body.single {
 					flex-basis: 50%;
 					font-size: 14px;
 					color: #207FEF;
+					text-align: right;
 				}
 
 				&.post-category {
 					flex-basis: 50%;
 					font-size: 14px;
-					text-align: right;
+					text-align: left;
 				}
 			}
 
@@ -106,6 +112,10 @@ body.single {
 			padding-bottom: 0;
 			background-color: #fff;
 
+			.sec-inner {
+				padding-top: 0;
+			}
+
 			h1 {
 				font-size: 28px;
 				width: 100%;
@@ -117,6 +127,14 @@ body.single {
 				margin-top: 78px;
 				padding-bottom: 26px;
 				margin-bottom: 20px;
+				border-bottom: 1px solid #979797;
+
+				&.sp-disp {
+					display: none;
+				}
+				&.pc-disp {
+					display: block;
+				}
 			}
 
 			article {
@@ -126,6 +144,7 @@ body.single {
 				border-top: none;
 				border-bottom: none;
 				border-collapse: collapse;
+				flex-direction: row;
 
 				span {
 

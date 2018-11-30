@@ -1390,6 +1390,11 @@ body.index #sec-hero h1 span img {
 	height: auto;
 }
 
+body.index #sec-hero h1 em {
+	color: #207fef;
+	font-style: normal;
+}
+
 body.index #sec-mission {
 	position: relative;
 	background-color: #fff;
@@ -1421,6 +1426,10 @@ body.index #sec-mission h4 {
 	letter-spacing: 0.129em;
 	margin: 0 10%;
 	margin-top: 19px;
+}
+
+body.index #sec-mission h4 span {
+	color: #284ADD;
 }
 
 body.index #sec-mission a.link-btn {
@@ -1457,7 +1466,7 @@ body.index #sec-service h4 {
 	position: relative;
 	display: block;
 	width: 80%;
-	font-size: 5.62vw;
+	font-size: 4.375vw;
 	font-weight: normal;
 	text-align: left;
 	color: #fff;
@@ -1483,15 +1492,29 @@ body.index #sec-service img#img-service-capture {
 	margin-top: 53px;
 }
 
+body.index #sec-service p {
+	display: block;
+	margin: 24px 6.25vw;
+	margin-bottom: 0;
+	font-size: 3.43vw;
+	text-align: center;
+	height: 11.56vw;
+	line-height: 11.56vw;
+	background-color: #fff;
+	box-sizing: border-box;
+	color: #4185FF;
+}
+
 body.index #sec-service .movie-wrap {
 	position: relative;
-	padding-bottom: 56.25%; /*アスペクト比 16:9の場合の縦幅*/
+	padding-bottom: 49%; /*アスペクト比 16:9の場合の縦幅*/
 	height: 0;
 	overflow: hidden;
 	margin: 24px 6.25vw;
+	margin-top: 0;
 }
 
-body.index #sec-service .youtube-video {
+body.index #sec-service #video {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -1556,9 +1579,10 @@ body.index #sec-news article {
 	box-sizing: border-box;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	flex-direction: row-reverse;
 	background-color: #fff;
 	margin: 24px 6.25vw;
-	padding: 11px 8px 30px 8px;
+	padding: 11px 8px 45px 8px;
 	width: calc(100% - 12.5vw);
 	box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.5);
 	transition: all .3s linear 0s;
@@ -1574,15 +1598,17 @@ body.index #sec-news article span.post-date {
 	flex-basis: 50%;
 	font-size: 14px;
 	color: #207FEF;
+	text-align: right;
 }
 
 body.index #sec-news article span.post-category {
 	flex-basis: 50%;
 	font-size: 14px;
-	text-align: right;
+	text-align: left;
 }
 
 body.index #sec-news article h3 {
+	flex-basis: 100%;
 	font-size: 17px;
 	font-weight: normal;
 	text-align: left;
@@ -1759,6 +1785,10 @@ body.about #sec-about .sec-inner h3 {
 	line-height: 1.52;
 	letter-spacing: 0.1em;
 	margin: 20px 0 55px 5%;
+}
+
+body.about #sec-about .sec-inner h3 span {
+	color: #284ADD;
 }
 
 body.about #sec-about .sec-inner .sec-block-txt {
@@ -2246,9 +2276,10 @@ body.archive #sec-news .sec-inner article {
 	box-sizing: border-box;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	flex-direction: row-reverse;
 	background-color: #fff;
 	margin: 24px 6.25vw;
-	padding: 11px 8px 30px 8px;
+	padding: 11px 8px 45px 8px;
 	width: calc(100% - 12.5vw);
 	box-shadow: 0 2px 4px 0 rgba(196, 196, 196, 0.5);
 	transition: all .3s linear 0s;
@@ -2264,15 +2295,17 @@ body.archive #sec-news .sec-inner article span.post-date {
 	flex-basis: 50%;
 	font-size: 14px;
 	color: #207FEF;
+	text-align: right;
 }
 
 body.archive #sec-news .sec-inner article span.post-category {
 	flex-basis: 50%;
 	font-size: 14px;
-	text-align: right;
+	text-align: left;
 }
 
 body.archive #sec-news .sec-inner article h2 {
+	flex-basis: 100%;
 	width: auto;
 	height: auto;
 	display: block;
@@ -2399,7 +2432,7 @@ body.single #sec-news {
 }
 
 body.single #sec-news .sec-inner {
-	padding-top: 0;
+	padding-top: 45px;
 }
 
 body.single #sec-news h1 {
@@ -2416,10 +2449,14 @@ body.single #sec-news h1 {
 	line-height: 1.47;
 	margin-top: 0;
 	width: 100%;
-	border-bottom: 1px solid #979797;
-	margin: 40px 28px 20px 28px;
+	border-bottom: none;
+	margin: 40px 0 0 0;
 	padding-bottom: 20px;
 	font-weight: normal;
+}
+
+body.single #sec-news h1.pc-disp {
+	display: none;
 }
 
 body.single #sec-news article {
@@ -2427,6 +2464,7 @@ body.single #sec-news article {
 	box-sizing: border-box;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	flex-direction: row-reverse;
 	margin: 24px 0;
 	padding: 0 28px;
 	width: 100%;
@@ -2437,12 +2475,13 @@ body.single #sec-news article span.post-date {
 	flex-basis: 50%;
 	font-size: 14px;
 	color: #207FEF;
+	text-align: right;
 }
 
 body.single #sec-news article span.post-category {
 	flex-basis: 50%;
 	font-size: 14px;
-	text-align: right;
+	text-align: left;
 }
 
 body.single #sec-news section {
@@ -2828,16 +2867,27 @@ body.index #sec-service h4 {
 	margin-top: 90px;
 }
 
+body.index #sec-service .reverse {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
 body.index #sec-service img#img-service-device {
 	display: inline-block;
 	width: 357px;
+	height: 248px;
 	margin-top: 107px;
+	margin-bottom: -20px;
 }
 
 body.index #sec-service img#img-service-capture {
 	display: inline-block;
 	width: 384px;
 	margin-top: 107px;
+}
+
+body.index #sec-service p {
+	display: none;
 }
 
 body.index #sec-service .movie-wrap {
@@ -2863,14 +2913,15 @@ body.index #sec-service .youtube-video {
 body.index #sec-service a.link-btn {
 	margin-top: 112px;
 	background-image: linear-gradient(to right, transparent 50%, #284add 50%);
-	border: none;
+	border: 1px solid #284ADD;
+	box-shadow: 0 2px 16px 0 rgba(255, 255, 255, 0.5);
 }
 
 body.index #sec-service a.link-btn:hover {
 	background-color: #284ADD;
 	color: #fff;
 	background-position: 100% 100%;
-	border: none;
+	border: 1px solid #284ADD;
 }
 
 body.index #sec-commingsoon {
@@ -2916,6 +2967,7 @@ body.index #sec-news article {
 	padding: 0;
 	width: 700px;
 	box-shadow: none;
+	flex-direction: row;
 }
 
 body.index #sec-news article.opened {
@@ -2928,6 +2980,7 @@ body.index #sec-news article span.post-date {
 	flex-basis: 87px;
 	font-size: 12px;
 	line-height: 25px;
+	text-align: left;
 }
 
 body.index #sec-news article span.post-category {
@@ -3491,6 +3544,7 @@ body.archive #sec-news {
 
 body.archive #sec-news .sec-inner article {
 	background: none;
+	flex-direction: row;
 	margin: 0 auto -1px auto;
 	padding: 45px 0 31px 0;
 	width: 800px;
@@ -3510,6 +3564,7 @@ body.archive #sec-news .sec-inner article span.post-date {
 	flex-basis: 87px;
 	line-height: 25px;
 	font-size: 13px;
+	text-align: left;
 }
 
 body.archive #sec-news .sec-inner article span.post-category {
@@ -3551,6 +3606,10 @@ body.single #sec-news {
 	background-color: #fff;
 }
 
+body.single #sec-news .sec-inner {
+	padding-top: 0;
+}
+
 body.single #sec-news h1 {
 	font-size: 28px;
 	width: 100%;
@@ -3562,6 +3621,15 @@ body.single #sec-news h1 {
 	margin-top: 78px;
 	padding-bottom: 26px;
 	margin-bottom: 20px;
+	border-bottom: 1px solid #979797;
+}
+
+body.single #sec-news h1.sp-disp {
+	display: none;
+}
+
+body.single #sec-news h1.pc-disp {
+	display: block;
 }
 
 body.single #sec-news article {
@@ -3571,6 +3639,7 @@ body.single #sec-news article {
 	border-top: none;
 	border-bottom: none;
 	border-collapse: collapse;
+	flex-direction: row;
 }
 
 body.single #sec-news article span.post-date {
@@ -3923,7 +3992,6 @@ body.single .post-navigation a:hover {
 
 .site-footer ul {
 	box-sizing: border-box;
-	width: 50%;
 	display: block;
 	list-style: none;
 	margin: 0 auto;

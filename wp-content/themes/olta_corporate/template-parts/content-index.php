@@ -25,7 +25,7 @@
 		<div class="sec-inner">
 			<h2 class="">ミッション</h2>
 			<h3 class="fade"><img src="/wp-content/themes/olta_corporate/images/txt-redesign.svg" alt="Credit Re:design"></h3>
-			<h4>あらゆる情報を信用に変え<br class="sp-disp">あたらしい価値を創出する</h4>
+			<h4>あらゆる情報を信用に変え<br class="sp-disp"><span>あたらしい価値を創出する</span></h4>
 			<a href="./about/" class="link-btn fade">OLTAについて<span class="pc-disp">&nbsp;></span></a>
 		</div>
 	</section><!-- .content #sec-mission -->
@@ -33,11 +33,12 @@
 	<section class="content-section" id="sec-service">
 		<div class="sec-inner">
 			<h2 class="">サービス</h2>
-			<h3 class="fade">クラウドファクタリング<br class="sp-disp">OLTA</h3>
-			<h4>請求書が売れる。<br>オフィスにいながら資金調達が可能な<br class="pc-disp">日本初のファクタリングサービスです。</h4>
-			<img src="/wp-content/themes/olta_corporate/images/img-service-device.png" alt="" id="img-service-device" class="fade">
-			<div class="movie-wrap">
-				<div class="youtube-video fade" id="demo-1" data-video-id="f0vd-ELcz8Q" width="560" height="315"></div>
+			<h3 class="fade">OLTA<br class="sp-disp">クラウドファクタリング</h3>
+			<h4>請求書が売れる。<br>「借りない」資金調達ができる日本初の<br class="pc-disp">オンライン完結型のファクタリングサービスです。</h4>
+			<div class="reverse">
+				<img src="/wp-content/themes/olta_corporate/images/img-service-device.png" alt="" id="img-service-device" class="fade">
+				<p class="fade">30秒で知るOLTAクラウドファクタリング</p>
+				<div class="movie-wrap fade"><video id="video" src="/wp-content/themes/olta_corporate/videos/introduction.mp4" controls></video></div>
 			</div>
 			<a href="" class="link-btn fade">もっと詳しく<span class="pc-disp">&nbsp;></span></a>
 		</div>
@@ -75,26 +76,7 @@
 				<span class="post-category"><?php echo $catName; ?></span>
 				<h3 class="accordion_text"><?php the_title(); ?></h3>
 				<p class="accordion_icon"><span></span><span></span></p>
-
-				<section>
-					<div class="pc-disp"><?php the_excerpt(); ?></div>
-					<div class="sp-disp">
-					<ul class="sns-btn">
-					<?php the_content(); ?>
-					<?php
-					  $url_encode=urlencode(get_permalink());
-					  $title_encode=urlencode(get_the_title());
-					?>
-						<li class="fb">
-						<a href="http://www.facebook.com/sharer.php?src=bm&u=<?php echo $url_encode;?>&t=<?php echo $title_encode;?>" class="naifix-sns-button"><i class="fas fa-thumbs-up"></i>いいね！</a><?php if(function_exists('scc_get_share_facebook')): ?><span class="sns-counter"><?php echo scc_get_share_facebook() ?></span><?php endif; ?></li>
-						<li class="tw">
-						<a href="http://twitter.com/share?text=<?php echo $title_encode ?>&url=<?php echo $url_encode ?>&tw_p=tweetbutton&via=<?php the_author_meta('twitter'); ?>&related=<?php the_author_meta('twitter'); ?>" class="naifix-sns-button"><i class="fab fa-twitter"></i>ツイート</a><?php if(function_exists('scc_get_share_twitter')): ?><span class="sns-counter"><?php echo scc_get_share_twitter() ?></span><?php endif; ?></li>
-						<li class="hb">
-						<a href="http://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $url_encode ?>" class="naifix-sns-button"><span>Ｂ!</span>ブックマーク</a><?php if(function_exists('scc_get_share_hatebu')): ?><span class="sns-counter"><?php echo scc_get_share_hatebu() ?></span><?php endif; ?></li>
-					</ul>
-					</div>
-
-				</section>
+				<section><?php the_excerpt(); ?></section>
 			</article>
 
 			<?php endwhile; ?>

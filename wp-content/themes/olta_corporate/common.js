@@ -1694,13 +1694,6 @@ $(".accordion_text").on("click",function(){
 });
 
 
-
-
-
-
-
-
-
 var myPromise = $.when(
 	$('head').append('<style>body{display:none;}'),
 	$('body').delay(900).fadeIn("slow")
@@ -1728,13 +1721,16 @@ myPromise.done(function() {
 	});
 });
 
+
+
+
 var map;
 function initMap() {
 	var mapPosition = {lat: 35.670106, lng: 139.726186};
 	var mapArea = document.getElementById('map');
 	var mapOptions = {
 		center: mapPosition,
-		zoom: 13,
+		zoom: 15,
 		styles:[
 		{
 			"elementType": "geometry",
@@ -1951,6 +1947,21 @@ function initMap() {
 		]
 	};
 	  var map = new google.maps.Map(mapArea, mapOptions);
+
+	var w = $(window).width();
+	var x = 767;
+
+    if (w <= x) {
+	  var markerOptions = {
+		map: map,
+		position: mapPosition,
+		icon: new google.maps.MarkerImage(
+		'/wp-content/themes/olta_corporate/images/gmap-marker-sp.svg',
+		new google.maps.Size(28,38)
+		),
+	  };
+	  var marker = new google.maps.Marker(markerOptions);
+    } else {
 	  var markerOptions = {
 		map: map,
 		position: mapPosition,
@@ -1960,216 +1971,6 @@ function initMap() {
 		),
 	  };
 	  var marker = new google.maps.Marker(markerOptions);
-
-
-
-
-
-
-
-
-
-
+    }
 
 	}
-/**
- * author Christopher Blum
- *    - based on the idea of Remy Sharp, http://remysharp.com/2009/01/26/element-in-view-event-plugin/
- *    - forked from http://github.com/zuk/jquery.inview/
- */
-(function (factory) {
-  if (typeof define == 'function' && define.amd) {
-    // AMD
-    define(['jquery'], factory);
-  } else if (typeof exports === 'object') {
-    // Node, CommonJS
-    module.exports = factory(require('jquery'));
-  } else {
-      // Browser globals
-    factory(jQuery);
-  }
-}(function ($) {
-
-  var inviewObjects = [], viewportSize, viewportOffset,
-      d = document, w = window, documentElement = d.documentElement, timer;
-
-  $.event.special.inview = {
-    add: function(data) {
-      inviewObjects.push({ data: data, $element: $(this), element: this });
-      // Use setInterval in order to also make sure this captures elements within
-      // "overflow:scroll" elements or elements that appeared in the dom tree due to
-      // dom manipulation and reflow
-      // old: $(window).scroll(checkInView);
-      //
-      // By the way, iOS (iPad, iPhone, ...) seems to not execute, or at least delays
-      // intervals while the user scrolls. Therefore the inview event might fire a bit late there
-      //
-      // Don't waste cycles with an interval until we get at least one element that
-      // has bound to the inview event.
-      if (!timer && inviewObjects.length) {
-         timer = setInterval(checkInView, 250);
-      }
-    },
-
-    remove: function(data) {
-      for (var i=0; i<inviewObjects.length; i++) {
-        var inviewObject = inviewObjects[i];
-        if (inviewObject.element === this && inviewObject.data.guid === data.guid) {
-          inviewObjects.splice(i, 1);
-          break;
-        }
-      }
-
-      // Clear interval when we no longer have any elements listening
-      if (!inviewObjects.length) {
-         clearInterval(timer);
-         timer = null;
-      }
-    }
-  };
-
-  function getViewportSize() {
-    var mode, domObject, size = { height: w.innerHeight, width: w.innerWidth };
-
-    // if this is correct then return it. iPad has compat Mode, so will
-    // go into check clientHeight/clientWidth (which has the wrong value).
-    if (!size.height) {
-      mode = d.compatMode;
-      if (mode || !$.support.boxModel) { // IE, Gecko
-        domObject = mode === 'CSS1Compat' ?
-          documentElement : // Standards
-          d.body; // Quirks
-        size = {
-          height: domObject.clientHeight,
-          width:  domObject.clientWidth
-        };
-      }
-    }
-
-    return size;
-  }
-
-  function getViewportOffset() {
-    return {
-      top:  w.pageYOffset || documentElement.scrollTop   || d.body.scrollTop,
-      left: w.pageXOffset || documentElement.scrollLeft  || d.body.scrollLeft
-    };
-  }
-
-  function checkInView() {
-    if (!inviewObjects.length) {
-      return;
-    }
-
-    var i = 0, $elements = $.map(inviewObjects, function(inviewObject) {
-      var selector  = inviewObject.data.selector,
-          $element  = inviewObject.$element;
-      return selector ? $element.find(selector) : $element;
-    });
-
-    viewportSize   = viewportSize   || getViewportSize();
-    viewportOffset = viewportOffset || getViewportOffset();
-
-    for (; i<inviewObjects.length; i++) {
-      // Ignore elements that are not in the DOM tree
-      if (!$.contains(documentElement, $elements[i][0])) {
-        continue;
-      }
-
-      var $element      = $($elements[i]),
-          elementSize   = { height: $element[0].offsetHeight, width: $element[0].offsetWidth },
-          elementOffset = $element.offset(),
-          inView        = $element.data('inview');
-
-      // Don't ask me why because I haven't figured out yet:
-      // viewportOffset and viewportSize are sometimes suddenly null in Firefox 5.
-      // Even though it sounds weird:
-      // It seems that the execution of this function is interferred by the onresize/onscroll event
-      // where viewportOffset and viewportSize are unset
-      if (!viewportOffset || !viewportSize) {
-        return;
-      }
-
-      if (elementOffset.top + elementSize.height > viewportOffset.top &&
-          elementOffset.top < viewportOffset.top + viewportSize.height &&
-          elementOffset.left + elementSize.width > viewportOffset.left &&
-          elementOffset.left < viewportOffset.left + viewportSize.width) {
-        if (!inView) {
-          $element.data('inview', true).trigger('inview', [true]);
-        }
-      } else if (inView) {
-        $element.data('inview', false).trigger('inview', [false]);
-      }
-    }
-  }
-
-  $(w).on("scroll resize scrollstop", function() {
-    viewportSize = viewportOffset = null;
-  });
-
-  // IE < 9 scrolls to focused elements without firing the "scroll" event
-  if (!documentElement.addEventListener && documentElement.attachEvent) {
-    documentElement.attachEvent("onfocusin", function() {
-      viewportOffset = null;
-    });
-  }
-}));
-
-/**
- * Create YouTube players from <div> placeholders with IFrame API.
- * Each <div> must have id, width, height and data-video-id attributes to init the player.
- * Start playing the video when iframe is scrolled into view.
- * Pause playing when it is scrolled out of view.
- *
- * Depends on https://github.com/protonet/jquery.inview
- */
-;(function ($) {
-	$.fn.inViewAutoplay = function (options) {
-		return this.filter('[id][width][height][data-video-id]').each(function () {
-			new YT.Player(this.getAttribute('id'), {
-				width: this.getAttribute('width'),
-				height: this.getAttribute('height'),
-				videoId: this.getAttribute('data-video-id'),
-				playerVars: options,
-				events: {
-					'onReady': onPlayerReady
-				}
-			});
-
-			function onPlayerReady(event) {
-				var player = event.target;
-
-				$(player.getIframe()).bind('inview', {player: player}, onPlayerInView);
-
-				if (options.quality) {
-					player.setPlaybackQuality(options.quality);
-				}
-			}
-
-			function onPlayerInView(event, visible) {
-				if (visible == true) {
-					event.data.player.playVideo();
-				} else {
-					event.data.player.pauseVideo();
-				}
-			}
-		});
-	};
-
-})(window.jQuery || window.Zepto);
-
-
-var tag = document.createElement('script');
-tag.src = "//www.youtube.com/player_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
-function onYouTubeIframeAPIReady() {
-  $('.youtube-video').inViewAutoplay({
-    autohide: 1,
-    modestbranding: 1,
-    rel: 0,
-    quality: 'hd720'
-  });
-}

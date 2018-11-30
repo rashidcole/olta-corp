@@ -25,7 +25,7 @@
 				<li>&copy; <?php echo date(Y); ?> OLTA Inc. All Rights Reserved.</li>
 			</ul>
 
-			<p class="sp-disp">&copy; <?php echo date(Y); ?> OLTA Inc. All Rights Reserved.</p>
+			<p class="sp-disp">&copy; <?php echo date(Y); ?> OLTA, Inc.</p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

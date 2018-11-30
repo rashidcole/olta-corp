@@ -17,7 +17,7 @@
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			<div class="sec-block prefade prefade-002">
 				<h2><img src="/wp-content/themes/olta_corporate/images/txt-redesign.svg" alt="Credit Re:desing"></h2>
-				<h3>あらゆる情報を信用に変え<br>あたらしい価値を創出する</h3>
+				<h3>あらゆる情報を信用に変え<br><span>あたらしい価値を創出する</span></h3>
 			</div>
 			<div class="sec-block-txt">
 				<p>世界中の誰もが大量の情報に触れ、大量の情報を発信し、さらにテクノロジーによってそれらの情報が整理されるようになった現在、個人や企業の「信用」はさまざまな角度から評価できるようになりました。</p>
@@ -100,7 +100,7 @@
 					<dt>資本金</dt>
 					<dd>5億1,100万円（資本準備金含む）</dd>
 					<dt>取引金融機関</dt>
-					<dd>三菱UFJ銀行、みずほ銀行、三井住友銀行、<br>住信SBIネット銀行</dd>
+					<dd>三菱UFJ銀行、三井住友銀行、みずほ銀行、住信SBIネット銀行</dd>
 					<dt>顧問弁護士</dt>
 					<dd>鈴木由里弁護士（渥美坂井法律事務所・外国法共同事業）</dd>
 					<dt>住所</dt>

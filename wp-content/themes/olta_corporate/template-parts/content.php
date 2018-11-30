@@ -20,7 +20,7 @@
 
 		<section class="content-section" id="sec-news">
 			<div class="sec-inner">
-				<h1><?php the_title(); ?></h1>
+				<h1 class="pc-disp"><?php the_title(); ?></h1>
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<?php
 						$cat = get_the_category();
@@ -28,7 +28,7 @@
 					?>
 					<span class="post-date"><?php the_time( 'Y.m.d' ); ?></span>
 					<span class="post-category"><?php echo $catName; ?></span>
-
+<h1 class="sp-disp"><?php the_title(); ?></h1>
 					<ul class="sns-btn pc-disp">
 						<?php
 						  $url_encode=urlencode(get_permalink());

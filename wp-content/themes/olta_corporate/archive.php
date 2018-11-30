@@ -27,13 +27,13 @@ get_header();
 			</header>
 			<section class="content-section" id="sec-news">
 				<div class="sec-inner">
-					<form role="search" method="get" class="search-form" action="http://olta-corporate/">
+					<!-- <form role="search" method="get" class="search-form" action="http://olta-corporate/">
 						<label>
 							<span class="screen-reader-text">検索:</span>
 							<input type="search" class="search-field" placeholder="ニュースを検索できます" value="" name="s" />
 						</label>
 						<input type="submit" class="search-submit fas" value="&#xf002;" />
-					</form>
+					</form> -->
 					<?php
 					/* Start the Loop */
 					while ( have_posts() ) :
