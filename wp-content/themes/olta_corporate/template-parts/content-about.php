@@ -102,11 +102,11 @@
 					<dt>取引金融機関</dt>
 					<dd>三菱UFJ銀行、みずほ銀行、三井住友銀行、<br>住信SBIネット銀行</dd>
 					<dt>顧問弁護士</dt>
-					<dd>鈴木由里弁護士（渥美坂井法律事務所）</dd>
+					<dd>鈴木由里弁護士（渥美坂井法律事務所・外国法共同事業）</dd>
 					<dt>住所</dt>
 					<dd>〒107-0062　東京都港区南青山一丁目15番41号<br>QCcube南青山115ビル 3階</dd>
 					<dt>認証取得</dt>
-					<dd><p><img src="/wp-content/themes/olta_corporate/images/img-iso.png"/><br><span>ISO 27001 / IS 688510</span></p></dd>
+					<dd><p><img src="/wp-content/themes/olta_corporate/images/img-iso.png"/><br><span>IS 688510 / ISO 27001</span></p></dd>
 				</dl>
 				<div id="map"></div>
 			</div>

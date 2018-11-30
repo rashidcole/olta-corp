@@ -16,7 +16,7 @@
 		<div id="img-sun"><img src="/wp-content/themes/olta_corporate/images/Sun.png" alt=""></div>
 		<div id="img-birds"><img src="/wp-content/themes/olta_corporate/images/Birds.png" alt=""></div>
 		<div class="sec-inner">
-			<h1 class="prefade prefade-001">会社経営を<br>ハックする<br><span><img src="/wp-content/themes/olta_corporate/images/main-title.svg" alt="olta"></span></h1>
+			<h1 class="prefade prefade-001">会社経営を<br><em>ハックする</em><br><span><img src="/wp-content/themes/olta_corporate/images/main-title.svg" alt="olta"></span></h1>
 
 		</div>
 	</section><!-- .content #sec-hero -->

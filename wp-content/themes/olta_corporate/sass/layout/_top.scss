@@ -51,6 +51,10 @@ body.index {
 					height: auto;
 				}
 			}
+			em {
+				color: #207fef;
+				font-style: normal;
+			}
 		}
 	}
 
@@ -220,6 +224,7 @@ body.index {
 			box-sizing: border-box;
 			justify-content: space-between;
 			flex-wrap: wrap;
+			flex-direction: row-reverse;
 			background-color: #fff;
 			margin: 24px 6.25vw;
 			padding: 11px 8px 30px 8px;
@@ -236,13 +241,11 @@ body.index {
 			span {
 
 				&.post-date {
-					flex-basis: 50%;
 					font-size: 14px;
 					color: #207FEF;
 				}
 
 				&.post-category {
-					flex-basis: 50%;
 					font-size: 14px;
 					text-align: right;
 				}
