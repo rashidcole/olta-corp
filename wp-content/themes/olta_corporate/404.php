@@ -17,7 +17,7 @@ get_header();
 					<h1 class="page-title"><?php esc_html_e( 'お探しのページが見つかりませんでした。', 'olta_corporate' ); ?></h1>
 				</div>
 
-				<div class="page-content">
+				<div class="page-content">   　
 
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
