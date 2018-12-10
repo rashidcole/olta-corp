@@ -94,7 +94,7 @@ function olta_corporate_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'olta_corporate_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'olta_corporate_content_width', 767 );
 }
 add_action( 'after_setup_theme', 'olta_corporate_content_width', 0 );
 
@@ -175,14 +175,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-
-
 // 固定ページにタグを設定
 function add_tag_to_page() {
  register_taxonomy_for_object_type('post_tag', 'page');
 }
 add_action('init', 'add_tag_to_page');
-
 
 /* インラインスタイル削除 */
 function remove_recent_comments_style() {
@@ -221,7 +218,6 @@ function my_custom_nav( $classes, $item ) {
 	return $classes;
 }
 
-
 // bodyにクラス（スラッグ）を追加
 add_filter( 'body_class', 'add_page_slug_class_name' );
 function add_page_slug_class_name( $classes ) {
@@ -232,15 +228,13 @@ function add_page_slug_class_name( $classes ) {
 	return $classes;
 }
 
-
-
 // Read more
 function new_excerpt_mblength($length) {
 	 return 95;
 }
 add_filter('excerpt_mblength', 'new_excerpt_mblength');
 function new_excerpt_more($more) {
-	return '...<a class="readmore" href="'. esc_url( get_permalink() ) . '">' . 'Read more' . '</a>';
+	return ' ...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 function my_posy_search($search) {

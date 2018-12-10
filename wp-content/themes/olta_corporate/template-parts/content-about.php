@@ -26,8 +26,8 @@
 			</div>
 		</div>
 	</section><!-- .content #sec-mission -->
-
 	<section class="content-section" id="sec-member">
+	<a id="sec-member-al"></a>
 		<div class="sec-inner">
 			<h2 class="clear">メンバー</h2>
 			<div class="sec-member-wrap">
@@ -42,7 +42,7 @@
 						?>
 
 						<div class="sec-block fade">
-							<?php if( $t_img ): //リンク先のデータがあれば表示する ?><img src="<?php echo $t_img['url']; ?>" alt="<?php echo $t_name; ?>"><?php endif; ?>
+							<?php if( $t_img ): ?><img src="<?php echo $t_img['url']; ?>" alt="<?php echo $t_name; ?>"><?php endif; ?>
 							<dl>
 								<dt><?php if( $t_name ): ?><?php echo $t_name; ?><?php endif; ?></dt>
 								<dd><?php if( $t_position ): ?><?php echo $t_position; ?><?php endif; ?></dd>
@@ -89,22 +89,16 @@
 			<h2 class="">会社概要</h2>
 			<div class="sec-block fade">
 				<dl>
-					<dt>会社名</dt>
-					<dd>OLTA株式会社</dd>
-					<dt>設立</dt>
-					<dd>2017年4月14日</dd>
-					<dt>代表者</dt>
-					<dd>代表取締役CEO 澤岻 優紀</dd>
-					<dt>事業内容</dt>
-					<dd>クラウドファクタリング事業、<br>与信モデルの企画・開発・提供</dd>
-					<dt>資本金</dt>
-					<dd>5億1,100万円（資本準備金含む）</dd>
-					<dt>取引金融機関</dt>
-					<dd>三菱UFJ銀行、三井住友銀行、みずほ銀行、住信SBIネット銀行</dd>
-					<dt>顧問弁護士</dt>
-					<dd>鈴木由里弁護士（渥美坂井法律事務所・外国法共同事業）</dd>
-					<dt>住所</dt>
-					<dd>〒107-0062　東京都港区南青山一丁目15番41号<br>QCcube南青山115ビル 3階</dd>
+					<?php if( have_rows('company') ):?>
+						<?php while( have_rows('company') ): the_row();
+							// vars
+							$c_title = get_sub_field('title');
+							$c_data = get_sub_field('data');
+							?>
+							<dt><?php if( $c_title ): ?><?php echo $c_title; ?><?php endif; ?></dt>
+							<dd><?php if( $c_data ): ?><?php echo $c_data; ?><?php endif; ?></dd>
+						<?php endwhile; ?>
+					<?php endif; ?>
 					<dt>認証取得</dt>
 					<dd><p><img src="/wp-content/themes/olta_corporate/images/img-iso.png"/><br><span>IS 688510 / ISO 27001</span></p></dd>
 				</dl>

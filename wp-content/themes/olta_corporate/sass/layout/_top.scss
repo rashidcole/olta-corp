@@ -140,22 +140,22 @@ body.index {
 
 		img#img-service-device {
 			display: block;
-			width: 70%;
+			width: 80%;
 			height: auto;
 			margin: 0 auto;
 			margin-top: 44px;
 		}
 
-		img#img-service-capture {
-			display: block;
+		.movie-block {
 			width: 80%;
-			height: auto;
-			margin: 0 auto;
-			margin-top: 53px;
+			margin: 24px auto;
+			box-shadow: 0 2px 16px 0 rgba(79,116,158,0.5);
 		}
+
 		p {
 			display: block;
-			margin: 24px 6.25vw;
+			margin: 24px auto;
+			width: 100%;
 			margin-bottom: 0;
 			font-size: 3.43vw;
 			text-align: center;
@@ -169,17 +169,18 @@ body.index {
 
 		.movie-wrap {
 			position: relative;
-			padding-bottom: 49%; /*アスペクト比 16:9の場合の縦幅*/
+			padding-bottom: 57.5%; /*アスペクト比 16:9の場合の縦幅*/
 			height: 0;
 			overflow: hidden;
-			margin: 24px 6.25vw;
+			width: 100%;
+			margin: 24px auto;
 			margin-top: 0;
 		}
 		#video {
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: 100%;
+			width: 101.8%;
 			height: 100%;
 		}
 
@@ -231,7 +232,7 @@ body.index {
 	#sec-news {
 		position: relative;
 		background-color: #f9f9f9;
-		padding-bottom: 183px;
+		padding-bottom: 240px;
 
 		h2 {
 			margin-bottom: 45px;
@@ -283,6 +284,8 @@ body.index {
 
 			section {
 				display: none;
+				text-align: left;
+				width: 100%;
 			}
 
 			.accordion_icon,
@@ -473,15 +476,15 @@ body.index {
 			img#img-service-device {
 				display: inline-block;
 				width: 357px;
-				height: 248px;
-				margin-top: 107px;
+				height: 202px;
+				margin-top: 114px;
 				margin-bottom: -20px;
 			}
 
-			img#img-service-capture {
-				display: inline-block;
-				width: 384px;
-				margin-top: 107px;
+			.movie-block {
+				width: auto;
+				margin: 0;
+				box-shadow: none;
 			}
 
 			p {
@@ -493,7 +496,7 @@ body.index {
 				padding-bottom: 0;
 				overflow: hidden;
 				display: inline-block;
-				width: 384px;
+				width: 375px;
 				height: 216px;
 				margin: 0;
 				margin-top: 107px;
@@ -503,15 +506,16 @@ body.index {
 				position: relative;
 				top: 0;
 				left: 0;
-				width: 384px;
+				width: 375px;
 				height: 216px;
+				box-shadow: 0 2px 16px 0 rgba(79,116,158,0.5);
 			}
 
 			a.link-btn {
 				margin-top: 112px;
 				background-image: linear-gradient(to right, transparent 50%, rgba(40, 74, 221, 1) 50% );
 				border: 1px solid #284ADD;
-				box-shadow: 0 2px 16px 0 rgba(255,255,255,0.50);
+				box-shadow: 0 2px 16px 0 rgba(79,116,158,0.5);
 
 				&:hover {
 					background-color: #284ADD;

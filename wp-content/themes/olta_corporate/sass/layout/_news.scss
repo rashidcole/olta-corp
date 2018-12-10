@@ -124,6 +124,8 @@ body.archive {
 
 				section {
 					display: none;
+					width: 100%;
+					text-align: left;
 				}
 
 				.accordion_icon,
@@ -221,6 +223,7 @@ body.archive {
 @media screen and (min-width: 768px) {
 
 	body.archive {
+		background-color: #fff;
 
 		.entry-header {
 			position: relative;

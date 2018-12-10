@@ -87,7 +87,7 @@ $(".accordion_text").on("click",function(){
 
 
 var myPromise = $.when(
-	$('head').append('<style>body{display:none;}'),
+	// $('head').append('<style>body{display:none;}'),
 	$('body').delay(900).fadeIn("slow")
 );
 myPromise.done(function() {
@@ -115,3 +115,17 @@ myPromise.done(function() {
 
 
 
+$(".parent a").on("click",function(){
+	$($(this).next("ul")).slideToggle(400);
+	$(this).parent().toggleClass('opened');
+
+	if ($(this).hasClass('active')) {
+		$(this).removeClass('active');
+		$(".accordion_text").removeClass('active');
+
+	}
+	else {
+		$(this).addClass('active');
+		$(".accordion_text").addClass('active');
+	}
+});

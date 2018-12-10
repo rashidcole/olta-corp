@@ -18,5 +18,5 @@
 	<span class="post-category"><?php echo $catName; ?></span>
 	<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<p class="accordion_icon"><span></span><span></span></p>
-	<section><?php the_excerpt(); ?></section>
+	<section><?php the_excerpt(); ?><p class="readmore"><a href="<?php the_permalink(); ?>">Read More</a></p></section>
 </article><!-- #post-<?php the_ID(); ?> -->

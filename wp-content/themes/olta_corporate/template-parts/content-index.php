@@ -26,7 +26,7 @@
 			<h2 class="">ミッション</h2>
 			<h3 class="fade"><img src="/wp-content/themes/olta_corporate/images/txt-redesign.svg" alt="Credit Re:design"></h3>
 			<h4>あらゆる情報を信用に変え<br class="sp-disp"><span>あたらしい価値を創出する</span></h4>
-			<a href="./about/" class="link-btn fade">OLTAについて<span class="pc-disp">&nbsp;></span></a>
+			<a href="/about/#sec-about" class="link-btn fade">もっと詳しく<span class="pc-disp">&nbsp;></span></a>
 		</div>
 	</section><!-- .content #sec-mission -->
 
@@ -37,8 +37,10 @@
 			<h4>請求書が売れる。<br>「借りない」資金調達ができる日本初の<br class="pc-disp">オンライン完結型のファクタリングサービスです。</h4>
 			<div class="reverse">
 				<img src="/wp-content/themes/olta_corporate/images/img-service-device.png" alt="" id="img-service-device" class="fade">
-				<p class="fade">30秒で知るOLTAクラウドファクタリング</p>
-				<div class="movie-wrap fade"><video id="video" src="/wp-content/themes/olta_corporate/videos/introduction.mp4" controls></video></div>
+				<div class="movie-block">
+					<p class="fade">30秒で知るOLTAクラウドファクタリング</p>
+					<div class="movie-wrap fade"><video id="video" src="/wp-content/themes/olta_corporate/videos/introduction.mp4" poster="/wp-content/themes/olta_corporate/images/img-movie-poster.png" controls></video></div>
+				</div>
 			</div>
 			<a href="" class="link-btn fade">もっと詳しく<span class="pc-disp">&nbsp;></span></a>
 		</div>
@@ -76,9 +78,8 @@
 				<span class="post-category"><?php echo $catName; ?></span>
 				<h3 class="accordion_text"><?php the_title(); ?></h3>
 				<p class="accordion_icon"><span></span><span></span></p>
-				<section><?php the_excerpt(); ?></section>
+				<section><?php the_excerpt(); ?><p class="readmore"><a href="<?php the_permalink(); ?>">Read More</a></p></section>
 			</article>
-
 			<?php endwhile; ?>
 			<?php else: ?>
 			  <p>新しい記事はありません</p>

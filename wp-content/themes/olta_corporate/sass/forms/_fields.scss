@@ -123,3 +123,14 @@ input[type="checkbox"]:checked:after {
 		background-size: 18px 18px;
 	}
 }
+
+
+div.wpcf7-response-output,
+div.wpcf7-mail-sent-ok,
+div.wpcf7-mail-sent-ng,
+div.wpcf7-aborted,
+div.wpcf7-spam-blocked,
+div.wpcf7-validation-errors,
+div.wpcf7-acceptance-missing {
+    border: none;
+}

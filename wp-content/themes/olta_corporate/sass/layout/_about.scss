@@ -109,7 +109,11 @@ body.about {
 		}
 	}
 
-
+	#sec-member-al {
+		position: absolute;
+		display: inline-block;
+		top: 0;
+	 }
 	#sec-member {
 		background-color: #20A0EF;
 		@include angled-edge('inside top','lower left', #fff, 145, 767);
@@ -241,12 +245,14 @@ body.about {
 
 	#sec-recruit {
 		background-color: #E3EDF7;
-		@include angled-edge('inside bottom','upper right', #E3EDF7, 145, 767);
-		@include angled-edge('inside bottom','upper right', #4185FF, 145, 767);
+
+		@include angled-edge('inside bottom','upper right', #fff, 145, 767);
 
 		.sec-inner{
+			background: none;
 
 			.sec-block {
+				background: none;
 
 				p {
 					font-size: 4.375vw;
@@ -305,15 +311,16 @@ body.about {
 
 
 	#sec-company {
-		background-color: #4185FF;
-		background:linear-gradient(to bottom,#4185FF 0%,#4185FF 90%,#f2f2f2 90%,#f2f2f2 100%);
+		background-color: #fff;
+		background:linear-gradient(to bottom,#fff 0%,#fff 90%,#fff 90%,#fff 100%);
+		padding-bottom: 0;
 
 		.sec-inner{
 
 			.sec-block {
 
 				dl {
-					margin: 0 8.125vw;
+					margin: 0 0;
 					margin-top: 0;
 					margin-bottom: 0;
 
@@ -357,7 +364,7 @@ body.about {
 			}
 
 			#map {
-				display: block;
+				display: none;
 				visibility: visible !important;
 				width: 100%;
 				height: 36vw;
@@ -367,14 +374,14 @@ body.about {
 	}
 
 	#sec-contact {
-		background-color: #f2f2f2;
+		background-color: #fff;
 
 		.sec-inner{
 
 			.sec-block {
 
 				form {
-					margin: 0 8.125vw;
+					margin: 0 0;
 					padding-bottom: 113px;
 
 					span.label-text {
@@ -452,6 +459,30 @@ body.about {
 						color: #aaa;
 						vertical-align: middle;
 					}
+
+					input[type="submit"]:hover {
+						box-sizing: border-box;
+						position: relative;
+						display: block;
+						border: 1px solid #aaa;
+						width: 68.75%;
+						height: 52px;
+						line-height: 16px;
+						font-size: 16px;
+						text-align: center;
+						margin: 0 auto;
+						padding: 0;
+						background-size: 200% 100%;
+						transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+						margin-top: 50px;
+						border-radius: 0;
+						outline: none;
+						appearance: none;
+						background-color: #fff;
+						color: #aaa;
+						vertical-align: middle;
+					}
+
 				}
 			}
 		}
@@ -464,6 +495,10 @@ body.about {
 @media screen and (min-width: 768px) {
 
 	body.about {
+
+	h2 {
+		margin-left: -70px;
+	}
 
 		.content-section {
 			position: relative;
@@ -529,7 +564,9 @@ body.about {
 			}
 		}
 
-
+		#sec-member-al {
+			top: -105px;
+		 }
 		#sec-member {
 			margin-top: 200px;
 			@include angled-edge('inside top','lower left', #fff, 435, 2301);
@@ -613,6 +650,7 @@ body.about {
 			@include angled-edge('inside bottom','upper right', #E3EDF7, 435, 2301);
 
 			.sec-inner{
+				background-color: #fff;
 
 				h2 {
 					margin-top: 100px;
@@ -655,6 +693,7 @@ body.about {
 
 		#sec-company {
 			background:linear-gradient(to bottom,#4185FF 0%,#4185FF 68%,#f2f2f2 68%,#f2f2f2 100%);
+			padding-bottom: 60px;
 
 			.sec-inner{
 
@@ -674,6 +713,7 @@ body.about {
 						display: flex;
 						box-sizing: border-box;
 						flex-wrap: wrap;
+						margin: 0;
 						margin-top: 0;
 						margin-bottom: 80px;
 
@@ -749,6 +789,8 @@ body.about {
 
 
 		#sec-contact {
+			background-color: #f2f2f2;
+			padding-bottom: 60px;
 
 			.sec-inner{
 
@@ -765,6 +807,7 @@ body.about {
 					padding-bottom: 67px;
 
 					form {
+						margin: 0;
 						padding-bottom: 0;
 
 						span.label-text {
@@ -835,7 +878,7 @@ body.about {
 							font-size: 28px;
 							text-align: left;
 							padding-left: 45px;
-							margin-right: -215px;
+							margin-right: -125px;
 							background-size: 200% 100%;
 							transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
 							background-image: linear-gradient(to right, transparent 50%, rgba(40, 74, 221, 1) 50% );
@@ -848,7 +891,29 @@ body.about {
 							vertical-align: middle;
 							border-color: #767586;
 
-							&:hover {
+							&:hover, &:active, &:focus {
+								box-sizing: border-box;
+								position: relative;
+								display: block;
+								width: 420px;
+								height: 75px;
+								line-height: 75px;
+								font-size: 28px;
+								text-align: left;
+								padding: 0;
+								padding-left: 45px;
+								margin-right: -125px;
+								background-size: 200% 100%;
+								transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+								background-image: linear-gradient(to right, transparent 50%, rgba(40, 74, 221, 1) 50% );
+								margin-top: 50px;
+								border-radius: 0;
+								outline: none;
+								appearance: none;
+								background-color: #fff;
+								color: #767586;
+								vertical-align: middle;
+								border-color: #767586;
 								background-color: #207FEF;
 								border: 1px solid #207FEF;
 								color: #fff;
